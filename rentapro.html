@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Parceria Estratégica: LABirintar & Rent A Pro</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Definindo as paletas de cores como variáveis CSS */
+        :root {
+            --rap-blue: #18396e;
+            --rap-green: #0a9f83;
+            --lab-red: #ff595a;
+            --lab-orange: #ffa400;
+            --lab-cream: #ffe9c9;
+            --lab-lavender: #e6cbe4;
+            --lab-lightblue: #aec5e7;
+            /* Cores para concorrentes */
+            --bmq-color: #d946ef; /* Fuchsia */
+            --arc-color: #3b82f6; /* Blue */
+            --up-color: #f97316;  /* Orange */
+        }
+
+        /* Aplicando a fonte Inter e cores base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: white;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Estilos para títulos e botões usando as variáveis */
+        h1, h2, h3, h4 {
+            color: var(--rap-blue);
+        }
+
+        .btn-rap {
+            background-color: var(--rap-green);
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .btn-rap:hover {
+            background-color: #088a70;
+        }
+        
+        /* Animação para revelar elementos ao rolar */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition-delay: 0.2s;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos para a Curva de Valor */
+        .value-curve-chart {
+            position: relative;
+            background-size: 100% 33.33%;
+             border-left: 2px solid #9ca3af;
+            border-bottom: 2px solid #9ca3af;
+        }
+
+        .chart-point {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .chart-line {
+            position: absolute;
+            height: 2px;
+            transform-origin: left center;
+            z-index: 5;
+            opacity: 0.7;
+        }
+        
+        .tooltip {
+            position: absolute;
+            display: none;
+            background-color: black;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+
+        .chart-point:hover .tooltip {
+            display: block;
+        }
+
+        /* Estilos para o Modal */
+        #plan-modal {
+            transition: opacity 0.3s ease;
+        }
+        #plan-modal > div {
+             transition: transform 0.3s ease;
+        }
+
+        /* Estilos para o Acordeão de Parceiros */
+        .partner-card .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .partner-card.open .details {
+            max-height: 500px; /* Altura suficiente para o conteúdo */
+        }
+        .partner-card.open .icon {
+            transform: rotate(45deg);
+        }
+        .partner-card .icon {
+             transition: transform 0.3s ease;
+        }
+        
+        /* Estilos para Análise DuPont */
+        .dupont-card {
+            position: relative;
+        }
+        .dupont-tooltip {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+        }
+        .dupont-card:hover .dupont-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Estilos para o Chat Advisor */
+        .chat-bubble {
+            max-width: 75%;
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
+        .user-bubble {
+            background-color: var(--rap-green);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .advisor-bubble {
+            background-color: #e5e7eb;
+            color: #1f2937;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Seção 1: Abertura Impactante -->
+    <section id="inicio" class="min-h-screen flex flex-col justify-center items-center text-center p-8 bg-gray-50">
+        <div class="flex items-center space-x-4 md:space-x-8 mb-8">
+            <img src="./IMG_1229.png" alt="Logo LABirintar" class="h-20 md:h-28">
+            <span class="text-4xl md:text-6xl font-bold text-gray-400">+</span>
+            <img src="./IMG_3013.png" alt="Logo Rent A Pro" class="h-20 md:h-28">
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4" style="color: var(--rap-blue);">Educação Integral em Rede</h1>
+        <p class="text-lg md:text-2xl text-gray-600 max-w-4xl">
+            Uma proposta de parceria estratégica para crescer com propósito, escala e impacto.
+        </p>
+        <a href="#reconhecimento" id="start-journey-btn" class="mt-12 btn-rap font-bold py-3 px-8 rounded-full text-lg animate-bounce">
+            Inicie a Jornada
+        </a>
+    </section>
+
+    <!-- Seção 2: Reconhecimento e Realidade (Oceano Vermelho) -->
+    <section id="reconhecimento" class="py-20 px-6 md:px-12 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12">Vocês construíram uma grande empresa.</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 text-left">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm reveal-on-scroll">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--rap-green);">+20 Anos de Mercado</h3>
+                    <p class="text-gray-600">Liderança e confiança consolidadas como referência no Brasil.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm reveal-on-scroll" style="transition-delay: 0.3s;">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--rap-green);">+45 Modalidades</h3>
+                    <p class="text-gray-600">O portfólio de atividades mais completo do setor.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm reveal-on-scroll" style="transition-delay: 0.4s;">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--rap-green);">Clientes de Prestígio</h3>
+                    <p class="text-gray-600">Parcerias com escolas renomadas que atestam a qualidade.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm reveal-on-scroll" style="transition-delay: 0.5s;">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--rap-green);">Credibilidade na Mídia</h3>
+                    <p class="text-gray-600">Reconhecimento em veículos como TV Globo e Veja São Paulo.</p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg reveal-on-scroll" style="background-color: rgba(24, 57, 110, 0.05);">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">O Desafio do Oceano Vermelho</h3>
+                <p class="text-lg text-gray-800 max-w-4xl mx-auto mb-8">
+                    Analisando o mercado, vemos que a competição é intensa e baseada em fatores muito similares. Todos disputam o mesmo cliente com argumentos parecidos, criando um "Oceano Vermelho". A seguir, uma Curva de Valor que mapeia a RAP e seus concorrentes nos principais atributos valorizados pelo mercado.
+                </p>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md max-w-5xl mx-auto">
+                    <h4 class="font-bold text-xl mb-4">Curva de Valor do Mercado Atual</h4>
+                    <div class="flex justify-center flex-wrap gap-x-6 gap-y-2 mb-8" id="chart-legend">
+                        <!-- Legend will be generated by JS -->
+                    </div>
+                    
+                    <div class="w-full h-80 relative mt-12" id="value-curve-container">
+                        <!-- Chart will be generated by JS -->
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 mt-12">Passe o mouse sobre os pontos para comparar os concorrentes em cada fator.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAIXA DE TRANSIÇÃO -->
+    <div class="bg-rap-blue py-12 text-center text-white reveal-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold">Onde o próximo crescimento virá?</h2>
+    </div>
+
+    <!-- Seção 3: A Virada Estratégica (Oceano Azul) -->
+    <section id="oceano-azul" class="py-20 px-6 md:px-12 overflow-hidden" style="background-color: var(--lab-cream);">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--lab-orange);">A Estratégia do Oceano Azul</h2>
+                <p class="text-xl text-gray-700 mb-12">Criando um futuro onde a concorrência se torna irrelevante através da inovação de valor.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 reveal-on-scroll" style="border-color: var(--lab-red);">
+                    <h3 class="text-2xl font-bold mb-2" style="color: var(--lab-red);">Criar</h3>
+                    <p class="text-gray-600">Uma rede autogerida de Educadores Empreendedores e uma plataforma tecnológica que integra todo o ecossistema.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 reveal-on-scroll" style="border-color: var(--lab-orange); transition-delay: 0.3s;">
+                    <h3 class="text-2xl font-bold mb-2" style="color: var(--lab-orange);">Elevar</h3>
+                    <p class="text-gray-600">A qualidade pedagógica das atividades e a valorização profissional e financeira do educador.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 reveal-on-scroll" style="border-color: var(--lab-lightblue); transition-delay: 0.4s;">
+                    <h3 class="text-2xl font-bold mb-2" style="color: var(--lab-lightblue);">Reduzir</h3>
+                    <p class="text-gray-600">O custo de aquisição de clientes e a complexidade de gestão para as escolas.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 reveal-on-scroll" style="border-color: var(--lab-lavender); transition-delay: 0.5s;">
+                    <h3 class="text-2xl font-bold mb-2" style="color: var(--lab-lavender);">Eliminar</h3>
+                    <p class="text-gray-600">A burocracia na contratação e gestão de múltiplos fornecedores de atividades extracurriculares.</p>
+                </div>
+            </div>
+            <p class="mt-12 text-lg text-gray-800 reveal-on-scroll">E se pudéssemos juntos criar este novo espaço de mercado? <br> Apresentamos o plano e o veículo para esta jornada.</p>
+        </div>
+    </section>
+    
+    <!-- Seção 4: LABirintar -->
+    <section id="labirintar" class="py-20 px-6 md:px-12 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">LABirintar: O Veículo para a Transição</h2>
+                <p class="text-xl text-gray-700 mb-12">Uma plataforma que conecta Educadores Empreendedores a escolas para uma educação viva, integral e sensível.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-gray-50 p-6 rounded-lg reveal-on-scroll">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--lab-red);">Modelo de Negócio</h3>
+                    <p>Plataforma multicomponente que integra tecnologia, pedagogia e uma rede de educadores para resolver de ponta a ponta o extracurricular das escolas.</p>
+                </div>
+                 <div class="bg-gray-50 p-6 rounded-lg reveal-on-scroll" style="transition-delay: 0.3s;">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--lab-orange);">Plataforma Tecnológica</h3>
+                    <p>Software que automatiza matrículas, pagamentos (com split automático), gestão pedagógica e operacional, liberando a escola da carga administrativa.</p>
+                </div>
+                 <div class="bg-gray-50 p-6 rounded-lg reveal-on-scroll" style="transition-delay: 0.4s;">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--lab-lavender);">Rede de Educadores</h3>
+                    <p>Curadoria e formação de Educadores Empreendedores que atuam com autonomia e protagonismo, funcionando como uma força comercial autogerida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 5: Rede de Valor -->
+    <section id="rede-de-valor" class="py-20 px-6 md:px-12 bg-gray-50 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">A Força da Nossa Rede de Valor</h2>
+                <p class="text-xl text-gray-700 mb-12">Enquanto o Oceano Vermelho compete em uma Cadeia de Valor linear, nós criamos um ecossistema onde todos os participantes geram e capturam mais valor.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <!-- Coluna Cadeia de Valor -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg border-2 border-red-200 reveal-on-scroll">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--lab-red);">Cadeia de Valor (Oceano Vermelho)</h3>
+                    <svg class="w-16 h-16 mx-auto mb-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <p class="text-gray-600">Empresas competem por uma fatia do mercado, pressionando as margens do elo mais fraco. O valor é extraído, não criado em conjunto.</p>
+                </div>
+                <!-- Coluna Rede de Valor -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg border-2 border-green-200 reveal-on-scroll" style="transition-delay: 0.3s;">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--rap-green);">Rede de Valor (Nosso Oceano Azul)</h3>
+                    <svg class="w-16 h-16 mx-auto mb-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <p class="text-gray-600">Atores se conectam em um "lugar de encontro". O valor que cada um captura é determinado pelo valor que pode criar com os outros, adensando a rede e fazendo o valor circular.</p>
+                </div>
+            </div>
+            <div class="mt-16 text-center reveal-on-scroll">
+                 <h3 class="text-2xl font-bold mb-4">Os Pilares do Ecossistema LABirintar</h3>
+                 <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10">Nossa rede integra múltiplos parceiros estratégicos que fortalecem nossa oferta. Para a RAP, a parceria significa se conectar a este ecossistema e competir não mais como uma empresa isolada, mas como parte de uma rede de valor inovadora.</p>
+                 <div id="partners-accordion" class="space-y-4 max-w-4xl mx-auto text-left">
+                     <!-- Cards de Parceiros serão inseridos aqui pelo JS -->
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 6: Jornada Evolutiva -->
+    <section id="jornada" class="py-20 px-6 md:px-12 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 reveal-on-scroll">Nossa Proposta de Colaboração: Uma Jornada Evolutiva</h2>
+            <div class="relative">
+                <!-- Linha do tempo -->
+                <div class="border-l-4 absolute h-full top-0 left-1/2 -ml-2" style="border-color: var(--rap-blue);"></div>
+                <div class="mb-12 flex justify-between items-center w-full right-timeline reveal-on-scroll">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 shadow-xl w-12 h-12 rounded-full" style="background-color: var(--lab-red);"><h3 class="mx-auto font-black text-white text-lg" style="text-shadow: 0 1px 2px rgba(0,0,0,0.4);">1</h3></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 p-6">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--lab-red);">Fase 1: Teste e Tração</h4>
+                        <p class="text-sm text-gray-600 mb-2">Converter 7 escolas, validar o modelo de parceria e gerar resultados imediatos. Ativos: Carteira RAP + Agilidade LABirintar.</p>
+                        <p class="text-sm text-gray-600"><strong>Prazo:</strong> Semestre 2 2025</p>
+                        <p class="text-sm text-gray-600"><strong>Remuneração:</strong> 15% do GMV</p>
+                    </div>
+                </div>
+                <div class="mb-12 flex justify-between flex-row-reverse items-center w-full left-timeline reveal-on-scroll">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 shadow-xl w-12 h-12 rounded-full" style="background-color: var(--lab-orange);"><h3 class="mx-auto font-black text-white text-lg" style="text-shadow: 0 1px 2px rgba(0,0,0,0.4);">2</h3></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 p-6">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--lab-orange);">Fase 2: Expansão Comercial</h4>
+                        <p class="text-sm text-gray-600 mb-2">Escalar a captação, tornando a RAP um canal recorrente e prioritário. Ativo: Força comercial conjunta.</p>
+                         <p class="text-sm text-gray-600"><strong>Prazo:</strong> Ano 2026</p>
+                        <p class="text-sm text-gray-600"><strong>Remuneração:</strong> 5% de equity</p>
+                    </div>
+                </div>
+                <div class="mb-12 flex justify-between items-center w-full right-timeline reveal-on-scroll">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 shadow-xl w-12 h-12 rounded-full" style="background-color: var(--lab-lavender);"><h3 class="mx-auto font-black text-lg" style="color: var(--rap-blue); text-shadow: none;">3</h3></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 p-6">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--lab-lavender);">Fase 3: Transformação Estratégica</h4>
+                        <p class="text-sm text-gray-600 mb-2">Iniciar a transição da RAP para o Oceano Azul. Aqui, a LABirintar atua como consultoria e plataforma de execução.</p>
+                        <p class="text-sm text-gray-600"><strong>Prazo:</strong> Anos 2027 e 2028</p>
+                        <p class="text-sm text-gray-600"><strong>Remuneração:</strong> Consultoria com contrapartida em equity</p>
+                        <button id="show-plan-btn" class="mt-4 text-sm font-bold py-2 px-4 rounded-full text-white" style="background-color: var(--lab-orange);">Ver Plano de Transição</button>
+                    </div>
+                </div>
+                <div class="mb-12 flex justify-between flex-row-reverse items-center w-full left-timeline reveal-on-scroll">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 shadow-xl w-12 h-12 rounded-full" style="background-color: var(--lab-lightblue);"><h3 class="mx-auto font-black text-lg" style="color: var(--rap-blue); text-shadow: none;">4</h3></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 p-6">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--lab-lightblue);">Fase 4: Consolidação e Exit</h4>
+                        <p class="text-sm text-gray-600 mb-2">RAP adota formalmente o modelo EdTech, alavancando a tecnologia para escala nacional. Ativo: Ecossistema tecnológico integrado.</p>
+                         <p class="text-sm text-gray-600"><strong>Prazo:</strong> Anos 2029 a 2031</p>
+                        <p class="text-sm text-gray-600"><strong>Remuneração:</strong> Exit da LABirintar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="simulador" class="py-20 px-6 md:px-12 bg-gray-50 overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center">
+             <div class="reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Como Materializamos Esta Parceria?</h2>
+                <p class="text-xl text-gray-700 mb-12">Explore os cenários de forma interativa.</p>
+            </div>
+            <div class="mb-8 reveal-on-scroll">
+                <div class="flex justify-center space-x-2 md:space-x-4 border-b-2 border-gray-200" id="scenario-tabs">
+                     <button class="scenario-btn active py-3 px-6 text-lg font-bold" style="color: var(--rap-blue); border-bottom: 3px solid var(--rap-blue);" data-scenario="comissao">Comissão por Indicação</button>
+                    <button class="scenario-btn py-3 px-6 text-lg font-bold text-gray-500" data-scenario="equity">Participação (Equity)</button>
+                </div>
+            </div>
+            <div id="scenario-comissao" class="scenario-content reveal-on-scroll">
+                <div class="bg-white p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--rap-green);">Ganho de Curto Prazo, Previsível e Direto</h3>
+                    <p class="mb-6 text-gray-600">Regras: <strong>15%</strong> de comissão sobre o GMV nos primeiros 6 meses, <strong>10%</strong> nos 18 meses seguintes (Total de 24 meses).</p>
+                    <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <label for="escolas-slider" class="font-bold text-gray-700">Número de Escolas Convertidas: <span id="escolas-valor" class="font-black" style="color: var(--rap-blue);">7</span></label>
+                            <input id="escolas-slider" type="range" min="1" max="50" value="7" class="w-full mt-2">
+                        </div>
+                        <div>
+                            <label for="alunos-slider" class="font-bold text-gray-700">Média de Alunos por Escola: <span id="alunos-valor" class="font-black" style="color: var(--rap-blue);">30</span></label>
+                            <input id="alunos-slider" type="range" min="15" max="100" value="30" class="w-full mt-2">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid md:grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-inner">
+                            <p class="text-lg text-gray-600">Sua Receita Mensal Média (24m):</p>
+                            <p id="comissao-resultado-mensal" class="text-4xl font-extrabold" style="color: var(--rap-green);">R$ 0,00</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-inner">
+                            <p class="text-lg text-gray-600">Sua Receita Total em 24 Meses:</p>
+                            <p id="comissao-resultado-total" class="text-4xl font-extrabold" style="color: var(--rap-green);">R$ 0,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="scenario-equity" class="scenario-content hidden reveal-on-scroll">
+                 <div class="bg-white p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--lab-orange);">Ganho de Longo Prazo, Exponencial e Estratégico</h3>
+                    <p class="mb-6 text-gray-600">Trocar um fluxo de caixa limitado por participação na valorização de uma EdTech. Um ativo para o <strong>seu futuro exit</strong>.</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                         <div class="text-left">
+                            <label for="equity-slider" class="font-bold text-gray-700">Sua Participação na LABirintar: <span id="equity-valor" class="font-black" style="color: var(--rap-blue);">5%</span></label>
+                            <input id="equity-slider" type="range" min="1" max="15" value="5" class="w-full mt-2">
+                        </div>
+                        <div class="mt-8 md:mt-0 bg-gray-100 p-6 rounded-lg shadow-inner">
+                            <p class="text-lg text-gray-600">Valor Presente do seu Equity:</p>
+                            <p id="equity-resultado-presente" class="text-3xl font-extrabold" style="color: var(--lab-orange);">R$ 0,00</p>
+                            <p class="text-lg text-gray-600 mt-4">Potencial em 5 anos (multiplicador 5x):</p>
+                             <p id="equity-resultado-futuro" class="text-4xl font-extrabold" style="color: var(--lab-orange);">R$ 0,00</p>
+                        </div>
+                    </div>
+                     <p class="text-sm text-gray-500 mt-6">Baseado em um valuation de <strong>R$ 4,3 milhões</strong> (DCF 10 anos, taxa de desconto de 26.75%).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: Análise DuPont -->
+    <section id="dupont-analysis" class="py-20 px-6 md:px-12 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Análise Financeira Profunda: O Potencial de Retorno</h2>
+                <p class="text-xl text-gray-700 mb-12 max-w-4xl mx-auto">Para entender o potencial de retorno do investimento, usamos a Análise DuPont. Ela mostra como a empresa gera seu Retorno sobre o Patrimônio (ROE) através de 3 alavancas: Lucratividade, Eficiência e Spread.</p>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-lg reveal-on-scroll">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-2xl font-bold mb-8">
+                    <div class="dupont-card bg-white p-6 rounded-lg shadow-md text-center flex-1">
+                        <h4 class="text-lg font-bold" style="color: var(--lab-red);">Lucratividade</h4>
+                        <p id="dupont-profit-margin" class="text-4xl font-extrabold" style="color: var(--lab-red);">0%</p>
+                        <div class="dupont-tooltip absolute -top-16 left-1/2 -translate-x-1/2 bg-black text-white text-xs rounded py-1 px-2 w-48">Mede o quanto a empresa lucra para cada real de receita.</div>
+                    </div>
+                    <span class="text-gray-400">×</span>
+                    <div class="dupont-card bg-white p-6 rounded-lg shadow-md text-center flex-1">
+                        <h4 class="text-lg font-bold" style="color: var(--lab-orange);">Eficiência</h4>
+                        <p id="dupont-asset-turnover" class="text-4xl font-extrabold" style="color: var(--lab-orange);">0.0x</p>
+                         <div class="dupont-tooltip absolute -top-16 left-1/2 -translate-x-1/2 bg-black text-white text-xs rounded py-1 px-2 w-48">Mede quão eficientemente a empresa usa seus ativos para gerar receita.</div>
+                    </div>
+                    <span class="text-gray-400">×</span>
+                     <div class="dupont-card bg-white p-6 rounded-lg shadow-md text-center flex-1">
+                        <h4 class="text-lg font-bold" style="color: var(--lab-lightblue);">Spread</h4>
+                        <p id="dupont-equity-multiplier" class="text-4xl font-extrabold" style="color: var(--lab-lightblue);">0.0x</p>
+                         <div class="dupont-tooltip absolute -top-24 left-1/2 -translate-x-1/2 bg-black text-white text-xs rounded py-1 px-2 w-64">Ganho para acionistas por utilizar o capital de terceiros em substituição ao capital próprio.</div>
+                    </div>
+                    <span class="text-gray-400">=</span>
+                    <div class="bg-green-100 p-6 rounded-lg shadow-xl text-center flex-1 ring-2 ring-rap-green" style="background-color: var(--rap-green);">
+                        <h4 class="text-lg font-bold text-white">ROE</h4>
+                        <p id="dupont-roe" class="text-4xl font-extrabold text-white">0%</p>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <label for="year-slider" class="font-bold text-gray-700">Selecione o Ano da Projeção: <span id="year-label" class="font-black" style="color: var(--rap-blue);">Ano 10</span></label>
+                    <input id="year-slider" type="range" min="1" max="10" value="10" class="w-full max-w-lg mx-auto mt-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tracao" class="py-20 px-6 md:px-12 overflow-hidden" style="background-color: var(--lab-cream);">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 reveal-on-scroll">Não Estamos Apenas no Papel. Estamos Executando.</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform reveal-on-scroll"><h3 class="font-bold text-lg mb-2" style="color: var(--lab-red);">Feedback Positivo</h3><p class="text-sm text-gray-600">"As crianças adoraram e pediram mais!" - Feedback de escolas parceiras.</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform reveal-on-scroll" style="transition-delay: 0.3s;"><h3 class="font-bold text-lg mb-2" style="color: var(--lab-orange);">Rede de Educadores</h3><p class="text-sm text-gray-600">Mais de 12 reuniões de formação, criando uma rede engajada e autogerida.</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform reveal-on-scroll" style="transition-delay: 0.4s;"><h3 class="font-bold text-lg mb-2" style="color: var(--lab-lavender);">Tecnologia em Validação</h3><p class="text-sm text-gray-600">Software de gestão sendo testado e aprimorado em ambiente real.</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform reveal-on-scroll"><h3 class="font-bold text-lg mb-2" style="color: var(--lab-lightblue);">Tração de Vendas</h3><p class="text-sm text-gray-600">Negociação avançada com 4 novas escolas para o próximo semestre.</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform reveal-on-scroll" style="transition-delay: 0.3s;"><h3 class="font-bold text-lg mb-2" style="color: var(--rap-green);">Parceiros Estratégicos</h3><p class="text-sm text-gray-600">Acordos com FestPay e Agência Freela para monetização e marketing.</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform reveal-on-scroll" style="transition-delay: 0.4s;"><h3 class="font-bold text-lg mb-2" style="color: var(--rap-blue);">Interesse de Investidores</h3><p class="text-sm text-gray-600">Conversas com 49, Anjos do Brasil e SEBRAE validam o potencial do negócio.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CONVERSE COM O ADVISOR -->
+    <section id="advisor" class="py-20 px-6 md:px-12 overflow-hidden" style="background-color: var(--rap-blue);">
+        <div class="max-w-4xl mx-auto text-center">
+             <div class="reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Converse com nosso Advisor de IA</h2>
+                <p class="text-xl mb-12" style="color: var(--lab-lightblue);">Faça perguntas sobre estratégia, finanças ou mercado. Nosso advisor, treinado com todos os dados desta proposta, irá responder.</p>
+             </div>
+            <div class="bg-white rounded-lg shadow-xl p-4 reveal-on-scroll">
+                <div id="chat-history" class="h-80 overflow-y-auto p-4 space-y-4 flex flex-col mb-4">
+                    <!-- Mensagens do chat aparecem aqui -->
+                </div>
+                <div class="flex space-x-2">
+                    <input type="text" id="user-input" class="flex-grow border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-rap-blue" placeholder="Digite sua pergunta aqui...">
+                    <button id="send-btn" class="btn-rap font-bold rounded-full w-12 h-12 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="proximos-passos" class="py-20 px-6 md:px-12 bg-gray-100 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Construindo o Futuro, Juntos</h2>
+                <p class="text-xl text-gray-700 mb-12">O caminho à frente é de colaboração e construção mútua.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto mb-12 reveal-on-scroll">
+                <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-8 h-8 rounded-full btn-rap flex items-center justify-center font-bold">1</div><p><strong>Discussão Aberta:</strong> Validar a percepção sobre os cenários e alinhar a visão estratégica.</p></div>
+                <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-8 h-8 rounded-full btn-rap flex items-center justify-center font-bold">2</div><p><strong>Alinhamento Tático:</strong> Definir o plano para as 7 escolas da Fase 1.</p></div>
+                <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-8 h-8 rounded-full btn-rap flex items-center justify-center font-bold">3</div><p><strong>Agendamento:</strong> Marcar o próximo encontro para detalhar os termos do cenário escolhido.</p></div>
+                <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-8 h-8 rounded-full btn-rap flex items-center justify-center font-bold">4</div><p><strong>Formalização:</strong> Iniciar a elaboração de um Termo de Acordo.</p></div>
+            </div>
+            <div class="reveal-on-scroll">
+                <p class="text-2xl font-bold mb-8">Vamos começar?</p>
+                <div class="text-lg">
+                    <p class="font-bold" style="color: var(--rap-blue);">Maria Lívia</p>
+                    <p class="text-gray-600">Fundadora, LABirintar</p>
+                    <p class="text-gray-600">contato@labirintar.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DO PLANO DE TRANSIÇÃO -->
+    <div id="plan-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center p-4 z-50 opacity-0">
+        <div class="bg-white p-8 rounded-lg shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold">Plano para a Transição (Fase 3)</h2>
+                <button id="close-plan-btn" class="text-3xl font-bold text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <p class="text-gray-700 mb-8">Um plano de ação em 5 etapas, utilizando as ferramentas da Estratégia do Oceano Azul, para navegar do cenário atual para um novo espaço de mercado de alto crescimento.</p>
+            <div class="space-y-8 text-left">
+                <!-- Etapas do modal -->
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold text-white" style="background-color: var(--rap-blue); text-shadow: 0 1px 2px rgba(0,0,0,0.4);">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Diagnóstico do Oceano Vermelho</h3>
+                        <p class="text-gray-600 mb-2">Mapear em profundidade o posicionamento competitivo atual para identificar as dores e oportunidades não endereçadas pelo mercado.</p>
+                        <div class="bg-blue-100 p-2 rounded-lg inline-block"><p class="font-bold text-xs" style="color: var(--rap-blue);">Ferramenta Chave: Canvas de Estratégia</p></div>
+                    </div>
+                </div>
+                 <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold" style="background-color: var(--lab-lightblue); color: var(--rap-blue); text-shadow: 0 1px 2px rgba(0,0,0,0.1);">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Exploração de Novos Horizontes</h3>
+                        <p class="text-gray-600 mb-2">Questionar as fronteiras atuais do mercado e explorar como a união de ativos RAP + LABirintar pode criar ofertas de valor radicalmente novas.</p>
+                        <div class="bg-orange-100 p-2 rounded-lg inline-block"><p class="font-bold text-xs" style="color: var(--lab-orange);">Ferramenta Chave: Matriz EREC</p></div>
+                    </div>
+                </div>
+                 <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold text-white" style="background-color: var(--lab-orange); text-shadow: 0 1px 2px rgba(0,0,0,0.4);">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Definição do Novo Modelo</h3>
+                        <p class="text-gray-600 mb-2">Com base na análise EREC, construir a nova Curva de Valor, articulando uma proposta única e validando o modelo de negócio do Oceano Azul.</p>
+                        <div class="bg-blue-100 p-2 rounded-lg inline-block"><p class="font-bold text-xs" style="color: var(--rap-blue);">Ferramenta Chave: Nova Curva de Valor</p></div>
+                    </div>
+                </div>
+                 <div class="flex items-start gap-6">
+                     <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold text-white" style="background-color: var(--lab-red); text-shadow: 0 1px 2px rgba(0,0,0,0.4);">4</div>
+                     <div>
+                        <h3 class="text-xl font-bold mb-1">Execução e Validação</h3>
+                        <p class="text-gray-600 mb-2">Implementar o novo modelo em um projeto piloto, coletando feedback constante através de ciclos de Construir-Medir-Aprender para adaptação rápida.</p>
+                         <div class="bg-red-100 p-2 rounded-lg inline-block"><p class="font-bold text-xs" style="color: var(--lab-red);">Foco: Agilidade e Aprendizado</p></div>
+                    </div>
+                </div>
+                 <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold text-white" style="background-color: var(--rap-green); text-shadow: 0 1px 2px rgba(0,0,0,0.4);">5</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Expansão e Consolidação</h3>
+                        <p class="text-gray-600 mb-2">Após a validação, escalar o modelo de Oceano Azul, fortalecer o posicionamento da nova marca e consolidar a liderança no novo espaço de mercado criado.</p>
+                        <div class="bg-green-100 p-2 rounded-lg inline-block"><p class="font-bold text-xs" style="color: var(--rap-green);">Foco: Escala e Liderança de Mercado</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica para o botão "Inicie a Jornada"
+            const startBtn = document.getElementById('start-journey-btn');
+            if (startBtn) {
+                startBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+
+            // Animação de revelação ao rolar
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // GRÁFICO DA CURVA DE VALOR
+            const factors = [
+                { name: 'Qualidade' }, { name: 'Inovação Pedagógica' },
+                { name: 'Amplitude da Oferta' }, { name: 'Conveniência do Modelo' },
+                { name: 'Reputação da Marca' }, { name: 'Preço (Otimizado)' }
+            ];
+            const competitors = {
+                'RAP': { color: 'var(--rap-green)', values: [2, 2, 3, 2, 3, 2], tooltips: ['Metodologia consolidada', 'Foco na execução', '>45 modalidades', 'Modelo de parceria tradicional', 'Marca com 20+ anos e presença na mídia', 'Competitivo'] },
+                'BMQ Sports': { color: 'var(--bmq-color)', values: [3, 3, 3, 2, 2, 2], tooltips: ['Certificação MEC', 'Foco em "Disciplina Positiva"', 'Ampla gama de modalidades', 'Assume encargos trabalhistas', 'Reputação em construção', 'Posicionamento por qualidade'] },
+                'ARC Sports': { color: 'var(--arc-color)', values: [2, 3, 2, 3, 2, 2], tooltips: ['Profissionais capacitados', '"Iniciação Desportiva Responsável"', 'Foco em esportes escolares', 'Modelo de "Gestão Total"', 'Fundador com boa reputação', 'Valor atrelado à conveniência'] },
+                'UP Gestão': { color: 'var(--up-color)', values: [2, 1, 3, 3, 3, 2], tooltips: ['Foco em profissionais', 'Menor ênfase em pedagogia de marca', 'Serviços muito diversificados', 'Foco em terceirização e flexibilidade', '16+ anos, forte em condomínios', 'Flexível'] }
+            };
+            
+            function drawValueCurve() {
+                const chartContainer = document.getElementById('value-curve-container');
+                if (!chartContainer) return;
+                const legendContainer = document.getElementById('chart-legend');
+                chartContainer.innerHTML = '';
+                if (legendContainer) legendContainer.innerHTML = '';
+            
+                const chartWidth = chartContainer.clientWidth;
+                const chartHeight = chartContainer.clientHeight;
+                
+                let chartHTML = `<div class="absolute w-full h-full">`;
+                const levels = ['Alto', 'Médio', 'Baixo'];
+                levels.forEach((level, i) => {
+                    const yPosPercentage = (i * (100 / 3)) + (100 / 6);
+                    chartHTML += `<div class="absolute left-[-45px] top-0 -translate-y-1/2 text-xs text-gray-500" style="top: ${yPosPercentage}%;">${level}</div>`;
+                    if (i < levels.length -1) {
+                       chartHTML += `<div class="absolute w-full border-t border-dashed border-gray-300" style="top: ${(i + 1) * 33.33}%"></div>`;
+                    }
+                });
+                chartHTML += '</div>';
+
+                const competitorKeys = Object.keys(competitors);
+                const jitterWidth = 12;
+
+                competitorKeys.forEach((key, competitorIndex) => {
+                    const competitor = competitors[key];
+                    let prevPoint = null;
+                    
+                    competitor.values.forEach((value, i) => {
+                        const base_x = (i + 0.5) * (chartWidth / factors.length);
+                        const x = base_x + (competitorIndex * jitterWidth) - ((competitorKeys.length - 1) * jitterWidth / 2);
+                        const y = chartHeight - ((value - 0.5) * (chartHeight / 3)); 
+
+                        chartHTML += `<div class="chart-point" style="left: ${x}px; top: ${y}px; background-color: ${competitor.color};">
+                                        <span class="tooltip"><strong style="color:${competitor.color};">${key}:</strong> ${competitor.tooltips[i]}</span>
+                                    </div>`;
+
+                        if (prevPoint) {
+                            const prevX = prevPoint.x;
+                            const prevY = prevPoint.y;
+                            const angle = Math.atan2(y - prevY, x - prevX) * 180 / Math.PI;
+                            const distance = Math.sqrt(Math.pow(x - prevX, 2) + Math.pow(y - prevY, 2));
+                            chartHTML += `<div class="chart-line" style="background-color: ${competitor.color}; left: ${prevX}px; top: ${prevY}px; width: ${distance}px; transform: rotate(${angle}deg);"></div>`;
+                        }
+                        prevPoint = { x, y };
+                    });
+                     if (legendContainer) {
+                        legendContainer.innerHTML += `<div class="flex items-center"><span class="h-3 w-3 rounded-full mr-2" style="background-color: ${competitor.color};"></span>${key}</div>`;
+                     }
+                });
+                
+                chartHTML += '<div class="absolute -bottom-8 w-full flex">';
+                factors.forEach(factor => {
+                    chartHTML += `<div class="w-1/6 text-center text-xs text-gray-600 font-medium">${factor.name}</div>`;
+                });
+                chartHTML += '</div>';
+                chartContainer.innerHTML = chartHTML;
+            }
+            
+            drawValueCurve();
+            window.addEventListener('resize', drawValueCurve);
+            
+            // Lógica do Simulador
+            const escolasSlider = document.getElementById('escolas-slider');
+            const alunosSlider = document.getElementById('alunos-slider');
+            const escolasValor = document.getElementById('escolas-valor');
+            const alunosValor = document.getElementById('alunos-valor');
+            const comissaoResultadoMensal = document.getElementById('comissao-resultado-mensal');
+            const comissaoResultadoTotal = document.getElementById('comissao-resultado-total');
+            const equitySlider = document.getElementById('equity-slider');
+            const equityValor = document.getElementById('equity-valor');
+            const equityResultadoPresente = document.getElementById('equity-resultado-presente');
+            const equityResultadoFuturo = document.getElementById('equity-resultado-futuro');
+            const TICKET_MEDIO = 447;
+            const VALUATION_LABIRINTAR = 4300000;
+
+            function formatCurrency(value) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+            
+            function calcularComissao() { 
+                if (!escolasSlider) return; 
+                const numEscolas = parseInt(escolasSlider.value); 
+                const numAlunos = parseInt(alunosSlider.value); 
+                escolasValor.textContent = numEscolas; 
+                alunosValor.textContent = numAlunos; 
+                
+                const gmvMensal = numEscolas * numAlunos * TICKET_MEDIO;
+                const receitaTotal24m = (gmvMensal * 0.15 * 6) + (gmvMensal * 0.10 * 18);
+                const receitaMediaMensal = receitaTotal24m / 24;
+
+                comissaoResultadoMensal.textContent = formatCurrency(receitaMediaMensal);
+                comissaoResultadoTotal.textContent = formatCurrency(receitaTotal24m);
+            }
+
+            function calcularEquity() { 
+                if (!equitySlider) return; 
+                const percEquity = parseInt(equitySlider.value); 
+                equityValor.textContent = `${percEquity}%`; 
+                const valorPresente = VALUATION_LABIRINTAR * (percEquity / 100); 
+                equityResultadoPresente.textContent = formatCurrency(valorPresente); 
+                equityResultadoFuturo.textContent = formatCurrency(valorPresente * 5); 
+            }
+            if (escolasSlider) escolasSlider.addEventListener('input', calcularComissao);
+            if (alunosSlider) alunosSlider.addEventListener('input', calcularComissao);
+            if (equitySlider) equitySlider.addEventListener('input', calcularEquity);
+            calcularComissao();
+            calcularEquity();
+
+            // Lógica das Abas
+            const scenarioBtns = document.querySelectorAll('.scenario-btn');
+            const scenarioContents = document.querySelectorAll('.scenario-content');
+            scenarioBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    scenarioBtns.forEach(b => { b.classList.remove('active'); b.style.color = '#6b7280'; b.style.borderBottom = 'none'; });
+                    btn.classList.add('active'); btn.style.color = 'var(--rap-blue)'; btn.style.borderBottom = '3px solid var(--rap-blue)';
+                    const scenarioId = btn.dataset.scenario;
+                    scenarioContents.forEach(content => { content.classList.toggle('hidden', content.id !== `scenario-${scenarioId}`); });
+                });
+            });
+
+            // Lógica do Modal do Plano de Transição
+            const showPlanBtn = document.getElementById('show-plan-btn');
+            const closePlanBtn = document.getElementById('close-plan-btn');
+            const planModal = document.getElementById('plan-modal');
+            
+            if(showPlanBtn && planModal && closePlanBtn) {
+                const modalContent = planModal.querySelector('div');
+
+                const openModal = () => {
+                    planModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        planModal.style.opacity = '1';
+                        if(modalContent) modalContent.style.transform = 'scale(1)';
+                    }, 10);
+                }
+
+                const closeModal = () => {
+                    planModal.style.opacity = '0';
+                    if(modalContent) modalContent.style.transform = 'scale(0.95)';
+                    setTimeout(() => planModal.classList.add('hidden'), 300);
+                };
+
+                showPlanBtn.addEventListener('click', openModal);
+                closePlanBtn.addEventListener('click', closeModal);
+                
+                planModal.addEventListener('click', (e) => {
+                    if(e.target === planModal) {
+                         closeModal();
+                    }
+                });
+            }
+
+            // Lógica do Acordeão de Parceiros
+            const partnersData = [
+                { name: 'Agência Freela', domain: 'Marketing e Geração de Leads para escolas.', contribution: 'Expertise em branding e campanhas digitais. Ativação da sua base de contatos para gerar leads com baixo CAC.', relevance: 'Ajuda a renovar a marca RAP, associando-a à inovação, e acelera a captação de clientes para o novo modelo integrado.' },
+                { name: 'FestPay', domain: 'Fintech para gestão de pagamentos em cantinas escolares.', contribution: 'Base de 40+ escolas clientes, expertise em vendas B2B para o setor e canal para troca de indicações.', relevance: 'Canal de baixo custo para expandir a base de clientes. Os insights sobre vendas e escala da FestPay são valiosos para a operação conjunta.' },
+                { name: 'Codifica', domain: 'Programas de programação de jogos e robótica para escolas.', contribution: 'Conteúdo tecnológico que enriquece a oferta da rede. Experiência de operação em larga escala (170 escolas) em outra região.', relevance: 'Integra conteúdo de alta demanda ao portfólio, fortalecendo a proposta de Educação Integral. Valida o software e o modelo de rede da LABirintar.' },
+                { name: 'Rafael Darrouy (TI)', domain: 'Desenvolvedor responsável pelo software de gestão da LABirintar.', contribution: 'Cria e mantém o ativo tecnológico central da rede: plataforma de gestão de matrículas, pagamentos, educadores e turmas.', relevance: 'O software é o pilar que resolve a dor operacional das escolas, moderniza a operação da RAP e permite escalar o modelo de rede com eficiência.' },
+                { name: 'Semente (Socioemocional)', domain: 'Desenvolvimento e formação em competências socioemocionais.', contribution: 'Metodologia científica e formação para que os educadores trabalhem o socioemocional em qualquer atividade (esporte, artes, etc.).', relevance: 'Eleva a qualidade pedagógica da oferta conjunta, agregando valor percebido por escolas e famílias e diferenciando-a de concorrentes focados apenas no técnico.' },
+                { name: 'Investidores e Advisors', domain: 'Sara (Investidora Anjo), Daniel Branco (Advisor), rede de investidores.', contribution: 'Capital financeiro, mentoria, conexões estratégicas e validação do modelo de negócio.', relevance: 'Garantem os recursos e a expertise para a LABirintar executar a estratégia de Oceano Azul, o que torna a parceria com a RAP um investimento em um negócio com alto potencial de crescimento e exit futuro.' }
+            ];
+
+            const accordionContainer = document.getElementById('partners-accordion');
+            if (accordionContainer) {
+                partnersData.forEach(partner => {
+                    const card = document.createElement('div');
+                    card.className = 'partner-card bg-white rounded-lg shadow-md overflow-hidden';
+                    card.innerHTML = `
+                        <div class="header p-4 flex justify-between items-center cursor-pointer">
+                            <h4 class="font-bold text-lg">${partner.name}</h4>
+                            <div class="icon text-2xl font-light text-gray-500 transition-transform">+</div>
+                        </div>
+                        <div class="details border-t border-gray-200">
+                            <div class="p-4">
+                                <p class="mb-2"><strong style="color: var(--rap-blue);">Domínio:</strong> ${partner.domain}</p>
+                                <p class="mb-2"><strong style="color: var(--rap-blue);">Contribuição para a Rede:</strong> ${partner.contribution}</p>
+                                <p><strong style="color: var(--rap-blue);">Relevância para a RAP:</strong> ${partner.relevance}</p>
+                            </div>
+                        </div>
+                    `;
+                    accordionContainer.appendChild(card);
+
+                    card.querySelector('.header').addEventListener('click', () => {
+                        document.querySelectorAll('.partner-card.open').forEach(openCard => {
+                            if (openCard !== card) {
+                                openCard.classList.remove('open');
+                            }
+                        });
+                        card.classList.toggle('open');
+                    });
+                });
+            }
+
+             // Lógica da Análise DuPont
+            const yearSlider = document.getElementById('year-slider');
+            const yearLabel = document.getElementById('year-label');
+            const dupontProfitMargin = document.getElementById('dupont-profit-margin');
+            const dupontAssetTurnover = document.getElementById('dupont-asset-turnover');
+            const dupontEquityMultiplier = document.getElementById('dupont-equity-multiplier');
+            const dupontRoe = document.getElementById('dupont-roe');
+            
+            const dupontData = {
+                1: { profitMargin: -0.6598, assetTurnover: 2.12, equityMultiplier: 1.62, roe: -2.2763 },
+                2: { profitMargin: -0.0539, assetTurnover: 4.14, equityMultiplier: 1.48, roe: -0.3299 },
+                3: { profitMargin: 0.1178, assetTurnover: 5.48, equityMultiplier: 1.25, roe: 0.8064 },
+                4: { profitMargin: 0.1806, assetTurnover: 6.01, equityMultiplier: 1.05, roe: 1.1388 },
+                5: { profitMargin: 0.2165, assetTurnover: 6.22, equityMultiplier: 0.90, roe: 1.2172 },
+                6: { profitMargin: 0.2284, assetTurnover: 6.22, equityMultiplier: 0.79, roe: 1.1190 },
+                7: { profitMargin: 0.2375, assetTurnover: 6.22, equityMultiplier: 0.70, roe: 1.0434 },
+                8: { profitMargin: 0.2446, assetTurnover: 6.22, equityMultiplier: 0.64, roe: 0.9745 },
+                9: { profitMargin: 0.2504, assetTurnover: 6.22, equityMultiplier: 0.58, roe: 0.9187 },
+                10:{ profitMargin: 0.2550, assetTurnover: 6.22, equityMultiplier: 0.54, roe: 0.8800 }
+            };
+
+            function updateDupontAnalysis(year) {
+                const data = dupontData[year];
+                if (!data) return;
+
+                yearLabel.textContent = `Ano ${year}`;
+                dupontProfitMargin.textContent = `${(data.profitMargin * 100).toFixed(0)}%`;
+                dupontAssetTurnover.textContent = `${data.assetTurnover.toFixed(2)}x`;
+                dupontEquityMultiplier.textContent = `${data.equityMultiplier.toFixed(2)}x`;
+                dupontRoe.textContent = `${(data.roe * 100).toFixed(0)}%`;
+
+                const roeCard = dupontRoe.closest('div');
+                if (roeCard) {
+                    if (data.roe < 0) {
+                        roeCard.style.backgroundColor = 'var(--lab-red)';
+                    } else {
+                        roeCard.style.backgroundColor = 'var(--rap-green)';
+                    }
+                }
+            }
+
+            if (yearSlider) {
+                yearSlider.addEventListener('input', (e) => {
+                    updateDupontAnalysis(e.target.value);
+                });
+                updateDupontAnalysis(10);
+            }
+            
+            // Lógica do Advisor de IA
+            const chatHistory = document.getElementById('chat-history');
+            const userInput = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+
+            const addMessage = (message, sender) => {
+                const bubble = document.createElement('div');
+                bubble.classList.add('chat-bubble', sender === 'user' ? 'user-bubble' : 'advisor-bubble');
+                bubble.textContent = message;
+                chatHistory.appendChild(bubble);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            };
+
+            const getAdvisorResponse = (question) => {
+                const q = question.toLowerCase();
+                if (q.includes('risco') || q.includes('cultural')) return "O maior risco é o desalinhamento cultural entre a cultura mais rígida da RAP e a cultura ágil da LABirintar. Mitigamos isso com governança clara, autonomia operacional para a LABirintar e uma Fase 1 de alinhamento prático.";
+                if (q.includes('valuation') || q.includes('exit')) return "A parceria com a LABirintar, uma edtech de Rede de Valor, posiciona a RAP em um mercado com múltiplos de valuation superiores. Isso agrega um ativo de alto crescimento ao portfólio da RAP, aumentando significativamente seu valor percebido em um futuro exit.";
+                if (q.includes('equity') || q.includes('comissão')) return "A comissão gera um fluxo de caixa previsível, mas limitado a 24 meses por cliente. O equity, por outro lado, permite que a RAP participe de forma exponencial e perene de todo o crescimento da LABirintar, incluindo novos produtos, mercados e a valorização da marca, com um potencial de retorno muito superior no longo prazo.";
+                if (q.includes('dupont') || q.includes('roe')) return "A Análise DuPont mostra que, após uma fase inicial de investimento, o modelo de negócio atinge um alto ROE. Isso é impulsionado pelo aumento da eficiência (Giro do Ativo) e pela melhoria da lucratividade (Margem Líquida), enquanto o endividamento diminui, provando a sustentabilidade e o potencial de retorno do negócio.";
+                if (q.includes('concorrentes') || q.includes('bmq') || q.includes('arc')) return "A parceria move a RAP da competição direta para a criação de um novo espaço de mercado. Em vez de competir nos mesmos fatores, criamos uma oferta integrada (esportes, tecnologia, artes) baseada em uma Rede de Valor, o que é muito mais difícil para os concorrentes copiarem.";
+                if (q.includes('parceiros') || q.includes('rede')) return "A Rede de Valor é o nosso maior ativo. Parceiros como Freela e FestPay nos dão acesso a canais de venda de baixo custo. Codifica e Semente enriquecem nosso portfólio com conteúdo de ponta. A tecnologia do nosso parceiro de TI permite a escala, e a rede de investidores valida o modelo. A RAP se conecta a todo este ecossistema.";
+                return "Não tenho certeza se entendi sua pergunta. Poderia reformular? Posso falar sobre riscos, valuation, análise financeira, concorrência ou sobre nossa rede de parceiros.";
+            };
+
+            const handleSend = () => {
+                const question = userInput.value.trim();
+                if (question === '') return;
+
+                addMessage(question, 'user');
+                userInput.value = '';
+
+                setTimeout(() => {
+                    const response = getAdvisorResponse(question);
+                    addMessage(response, 'advisor');
+                }, 1000 + Math.random() * 500);
+            };
+            
+            if(sendBtn && userInput){
+                sendBtn.addEventListener('click', handleSend);
+                userInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        handleSend();
+                    }
+                });
+            }
+
+            addMessage("Olá! Sou o Advisor de IA da LABirintar. Como posso ajudar a analisar esta oportunidade?", 'advisor');
+
+        });
+    </script>
+
+</body>
+</html>
