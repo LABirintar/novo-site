@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useMemo, useEffect, useRef, RefObject } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Map, Cpu, Award, Heart, Share2, CheckCircle, ChevronLeft, ChevronRight, BarChart2, X } from 'lucide-react';
@@ -1049,22 +1048,66 @@ const Footer: React.FC<FooterProps> = ({ onOpenModal, isFormValid }) => {
     );
 };
 
-const InputGroup: React.FC<{ label: string; id: string; name: string; type?: string; placeholder?: string; required?: boolean; value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; }> = 
-({ label, id, name, type = 'text', placeholder, required = true, value, onChange }) => (
-    <div>
-        <label htmlFor={id} className="block font-semibold mb-2 text-text-main">{label}</label>
-        <input 
-            type={type} 
-            id={id} 
-            name={name} 
-            placeholder={placeholder} 
-            required={required}
-            value={value}
-            onChange={onChange}
-            className="w-full p-3 border-2 border-accent-blue rounded-lg text-lg focus:ring-2 focus:ring-primary focus:outline-none bg-white"
-        />
-    </div>
-);
+// Função para formatar telefone brasileiro
+const formatPhoneNumber = (value: string): string => {
+    // Remove tudo que não é número
+    const numbers = value.replace(/\D/g, '');
+    
+    // Limita a 11 dígitos (DDD + 9 dígitos)
+    const limitedNumbers = numbers.slice(0, 11);
+    
+    // Aplica a máscara
+    if (limitedNumbers.length <= 2) {
+        return `(${limitedNumbers}`;
+    } else if (limitedNumbers.length <= 7) {
+        return `(${limitedNumbers.slice(0, 2)}) ${limitedNumbers.slice(2)}`;
+    } else {
+        return `(${limitedNumbers.slice(0, 2)}) ${limitedNumbers.slice(2, 7)}-${limitedNumbers.slice(7)}`;
+    }
+};
+
+// Função para validar telefone brasileiro
+const validatePhoneNumber = (value: string): boolean => {
+    const numbers = value.replace(/\D/g, '');
+    // Deve ter 10 ou 11 dígitos (com ou sem o 9)
+    return numbers.length >= 10 && numbers.length <= 11;
+};
+
+const InputGroup: React.FC<{ 
+    label: string; 
+    id: string; 
+    name: string; 
+    type?: string; 
+    placeholder?: string; 
+    required?: boolean; 
+    value: string; 
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    isPhone?: boolean;
+}> = ({ label, id, name, type = 'text', placeholder, required = true, value, onChange, isPhone = false }) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (isPhone) {
+            const formattedValue = formatPhoneNumber(e.target.value);
+            e.target.value = formattedValue;
+        }
+        onChange(e);
+    };
+
+    return (
+        <div>
+            <label htmlFor={id} className="block font-semibold mb-2 text-text-main">{label}</label>
+            <input 
+                type={type} 
+                id={id} 
+                name={name} 
+                placeholder={placeholder} 
+                required={required}
+                value={value}
+                onChange={handleChange}
+                className="w-full p-3 border-2 border-accent-blue rounded-lg text-lg focus:ring-2 focus:ring-primary focus:outline-none bg-white"
+            />
+        </div>
+    );
+};
 
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, contactData, onContactDataChange, onSubmit }) => {
     if (!isOpen) return null;
@@ -1085,7 +1128,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, contactDat
                     <div className="space-y-4">
                         <InputGroup label="Seu nome" id="contact-name" name="name" value={contactData.name} onChange={onContactDataChange} />
                         <InputGroup label="E-mail" id="contact-email" name="email" type="email" placeholder="seu@email.com" value={contactData.email} onChange={onContactDataChange}/>
-                        <InputGroup label="Telefone" id="contact-phone" name="phone" type="tel" placeholder="(11) 99999-9999" value={contactData.phone} onChange={onContactDataChange}/>
+                        <InputGroup label="Telefone" id="contact-phone" name="phone" type="tel" placeholder="(11) 99999-9999" value={contactData.phone} onChange={onContactDataChange} isPhone={true}/>
                         <InputGroup label="Cargo" id="contact-role" name="role" value={contactData.role} onChange={onContactDataChange}/>
                         <InputGroup label="Escola" id="contact-school" name="school" value={contactData.school} onChange={onContactDataChange}/>
                     </div>
@@ -1179,47 +1222,41 @@ const App: React.FC = () => {
 
         const fullFormData = {
             sessionId: sessionId.current,
-            timestamp: new Date().toISOString(),
-            // Contact
-            contatoNome: contactData.name,
-            contatoEmail: contactData.email,
-            contatoTelefone: contactData.phone,
-            contatoCargo: contactData.role,
-            contatoEscola: contactData.school,
-            // Problem
-            rankingDiferenciar: rankings.diferenciar,
-            rankingReter: rankings.reter,
-            rankingEspacos: rankings.espacos,
-            desafioAberto: openChallenge,
-            // Portfolio
-            experienciasSelecionadas: Object.keys(selectedExperiences).filter(k => selectedExperiences[k]).join(', '),
-            // Simulator Inputs
-            simuladorTotalAlunos: simTotalAlunos,
-            simuladorMetaConversao: simMetaConversao,
-            simuladorFrequenciaSemanal: simFrequenciaSemanal,
-            simuladorMensalidadeCurricular: simMensalidadeCurricular,
-            // Simulator Calculated
-            calculadoAlunosExtra: alunosExtra,
-            calculadoMensalidadeExtra: mensalidadeExtra,
-            calculadoPercentualCurricular: percentualCurricular,
-            calculadoReceitaTotal: totalRevenue,
-            calculadoGanhoModelo1: gainModel1,
-            calculadoGanhoModelo2: gainModel2,
-            // Partnership
-            modeloParceriaSelecionado: selectedPartnershipModel,
-            // Benefits
-            beneficiosSelecionados: Object.keys(selectedBenefits).filter(k => selectedBenefits[k]).map(id => benefits.find(b => b.id === id)?.label || '').join(', '),
+            Timestamp: new Date().toISOString(),
+            ContatoNome: contactData.name,
+            ContatoEmail: contactData.email,
+            ContatoTelefone: contactData.phone,
+            ContatoCargo: contactData.role,
+            ContatoEscola: contactData.school,
+            RankingDiferenciar: rankings.diferenciar,
+            RankingReter: rankings.reter,
+            RankingEspacos: rankings.espacos,
+            DesafioAberto: openChallenge,
+            ExperienciasSelecionadas: Object.keys(selectedExperiences).filter(k => selectedExperiences[k]).join(', '),
+            SimuladorTotalAlunos: simTotalAlunos,
+            SimuladorMetaConversao: simMetaConversao,
+            SimuladorFrequenciaSemanal: simFrequenciaSemanal,
+            SimuladorMensalidadeCurricular: simMensalidadeCurricular,
+            CalculadoAlunosExtra: alunosExtra,
+            CalculadoMensalidadeExtra: mensalidadeExtra,
+            CalculadoPercentualCurricular: percentualCurricular,
+            CalculadoReceitaTotal: totalRevenue,
+            CalculadoGanhoModelo1: gainModel1,
+            CalculadoGanhoModelo2: gainModel2,
+            ModeloParceriaSelecionado: selectedPartnershipModel,
+            BeneficiosSelecionados: Object.keys(selectedBenefits).filter(k => selectedBenefits[k]).map(id => benefits.find(b => b.id === id)?.label || '').join(', '),
         };
 
         fetch(APPS_SCRIPT_URL, {
             method: 'POST',
             body: JSON.stringify(fullFormData),
             headers: {
-                'Content-Type': 'text/plain;charset=utf-8', // Apps Script quirk
+                'Content-Type': 'text/plain;charset=utf-8',
             },
-        }).then(response => response.json())
-          .then(data => console.log('Sync success:', data))
-          .catch(error => console.error('Sync error:', error));
+        })
+        .then(response => response.json())
+        .then(data => console.log('Sync success:', data))
+        .catch(error => console.error('Sync error:', error));
 
     }, [
         contactData, rankings, openChallenge, selectedExperiences, 
@@ -1229,7 +1266,7 @@ const App: React.FC = () => {
     ]);
 
     // Debounced useEffect to sync data on any change
-    useEffect(() => {
+    /*useEffect(() => {
         if (debounceTimer.current) {
             clearTimeout(debounceTimer.current);
         }
@@ -1242,7 +1279,9 @@ const App: React.FC = () => {
                 clearTimeout(debounceTimer.current);
             }
         };
-    }, [syncDataWithSheet]);
+    }, [syncDataWithSheet]);*/
+
+    
 
 
     const handleToggleExperience = useCallback((title: string) => {
@@ -1278,6 +1317,12 @@ const App: React.FC = () => {
     const handleCloseModal = useCallback(() => setIsModalOpen(false), []);
 
     const handleFinalSubmit = () => {
+        // Validar telefone antes de enviar
+        if (!validatePhoneNumber(contactData.phone)) {
+            alert("Por favor, insira um telefone válido no formato (00) 99999-9999");
+            return;
+        }
+
         // Final sync before submission
         syncDataWithSheet();
 
@@ -1301,9 +1346,9 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="overflow-x-hidden">
+        <div className="overflow-x-hidden min-h-screen flex flex-col">
             <Hero />
-            <main>
+            <main className="flex-1">
                 <VisionSection />
                 <ProblemSection 
                     rankings={rankings}

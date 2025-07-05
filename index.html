@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LABirintar - Formulário Comercial para Escolas</title>
+    <link rel="icon" href="data:,">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,22 +44,21 @@
         color-scheme: light;
       }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react": "https://esm.sh/react@^19.1.0",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.525.0"
+  <script type="importmap">
+  {
+    "imports": {
+      "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+      "react": "https://esm.sh/react@^19.1.0",
+      "react/": "https://esm.sh/react@^19.1.0/",
+      "lucide-react": "https://esm.sh/lucide-react@^0.525.0"
+    }
   }
-}
-</script>
-<!-- Adicionado Babel Standalone para transpilar JSX/TSX no navegador -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </script>
 </head>
 <body class="bg-white font-inter text-text-main antialiased">
     <div id="root"></div>
-    <!-- Script modificado para ser processado pelo Babel -->
+    <!-- Script processado pelo Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel" data-type="module" data-presets="react,typescript" src="./index.tsx"></script>
 </body>
 </html>
