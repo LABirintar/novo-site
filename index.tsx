@@ -259,7 +259,7 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({ images, currentIndex, ori
 
 const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, onImageClick, isChecked, onToggle }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const basePath = 'https://clubesa.github.io/simuladorRede3d/diagnostico/';
+    const basePath = 'https://labirintar.github.io/comercial/diagnostico/';
 
     const nextImage = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -360,7 +360,7 @@ const Hero: React.FC = () => {
         <header className="relative h-screen flex flex-col items-center justify-center text-center p-4 bg-gradient-to-br from-accent-blue to-accent-lavender overflow-hidden">
             <img 
                 ref={logoRef}
-                src="https://clubesa.github.io/simuladorRede3d/logoslabirintar/Labirintar_RGB.png" 
+                src="https://labirintar.github.io/simuladorRede3d/logoslabirintar/Labirintar_RGB.png" 
                 alt="Logo LABirintar" 
                 className={`w-[350px] max-w-[80%] mb-8 drop-shadow-md ${getFadeInClass(isLogoVisible)}`}
                 style={{ transitionDelay: '100ms' }}
@@ -632,7 +632,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
         }).catch(err => console.error('Failed to copy link: ', err));
     }, []);
 
-    const basePath = 'https://clubesa.github.io/simuladorRede3d/diagnostico/';
+    const basePath = 'https://labirintar.github.io/simuladorRede3d/diagnostico/';
     const handleOpenLightbox = useCallback((item: PortfolioItem, imageIndex: number, element: HTMLElement) => {
         const imageUrls = item.images.map(imgFile => `${basePath}${item.folder}/${imgFile}`);
         element.style.visibility = 'hidden';
