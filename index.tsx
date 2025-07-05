@@ -360,7 +360,7 @@ const Hero: React.FC = () => {
         <header className="relative h-screen flex flex-col items-center justify-center text-center p-4 bg-gradient-to-br from-accent-blue to-accent-lavender overflow-hidden">
             <img 
                 ref={logoRef}
-                src="/logoslabirintar/Labirintar_RGB.png" 
+                src="logoslabirintar/Labirintar_RGB.png" 
                 alt="Logo LABirintar" 
                 className={`w-[350px] max-w-[80%] mb-8 drop-shadow-md ${getFadeInClass(isLogoVisible)}`}
                 style={{ transitionDelay: '100ms' }}
