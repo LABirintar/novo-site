@@ -625,7 +625,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
 
     const handleCopyLink = useCallback(() => {
-        const link = 'https://clubesa.github.io/simuladorRede3d/diagnostico/formulario.html';
+        const link = 'https://labirintar.github.io/comercial/diagnostico/formulario.html';
         navigator.clipboard.writeText(link).then(() => {
             setCopyButtonText('Link Copiado!');
             setTimeout(() => setCopyButtonText('Copiar Link do Diagnóstico'), 2000);
@@ -750,7 +750,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
                 </div>
                 <div className="w-full h-full min-h-[800px] flex items-center justify-center">
                     <iframe 
-                        src="https://clubesa.github.io/simuladorRede3d/diagnostico/formulario.html" 
+                        src="https://labirintar.github.io/comercial/diagnostico/formulario.html" 
                         title="Preview do Formulário de Diagnóstico"
                         className="w-full h-full border-4 border-white rounded-lg shadow-lg"
                         style={{ transform: 'scale(0.7)' }}
