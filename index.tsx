@@ -191,68 +191,129 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({ images, currentIndex, ori
         left: `${originRect.left}px`,
         width: `${originRect.width}px`,
         height: `${originRect.height}px`,
-        maxWidth: '90vw',
-        maxHeight: '90vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'transparent',
+        boxShadow: 'none',
+        borderRadius: 0,
+        padding: 0,
     };
 
     if (isAnimating && !isClosing) {
         containerStyle.top = '50%';
         containerStyle.left = '50%';
-        containerStyle.width = 'auto'; // Let aspect ratio dictate size
+        containerStyle.width = 'auto';
         containerStyle.height = 'auto';
         containerStyle.transform = 'translate(-50%, -50%)';
-        containerStyle.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
-        containerStyle.borderRadius = '0.75rem';
+        containerStyle.background = 'transparent';
+        containerStyle.boxShadow = 'none';
+        containerStyle.borderRadius = 0;
+        containerStyle.padding = 0;
     }
 
     return (
         <div
-            className={`fixed inset-0 z-50 transition-all duration-300 ease-in-out ${isAnimating && !isClosing ? 'bg-black/70 backdrop-blur-sm' : 'bg-transparent'}`}
-            onClick={handleClose}
+            style={{
+                position: 'fixed',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 60,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'transparent',
+            }}
             role="dialog"
             aria-modal="true"
         >
-            {/* Animating container for image and nav buttons */}
             <div
-                style={containerStyle}
-                onClick={(e) => e.stopPropagation()}
-                className="relative flex items-center justify-center overflow-hidden"
+                style={{
+                    position: 'relative',
+                    background: 'white',
+                    borderRadius: '16px',
+                    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
+                    padding: '20px',
+                    maxWidth: '90vw',
+                    maxHeight: '90vh',
+                    overflow: 'auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
             >
                 <img
                     src={imageUrl}
                     alt="Imagem ampliada"
-                    className="w-auto h-auto max-w-full max-h-full object-contain"
+                    style={{
+                        maxWidth: '100%',
+                        maxHeight: '80vh',
+                        width: 'auto',
+                        height: 'auto',
+                        display: 'block',
+                        borderRadius: '8px',
+                        margin: 'auto',
+                    }}
                 />
-
-                {/* Navigation buttons are now absolute to the parent container */}
                 {images.length > 1 && (
                     <>
                         <button
-                            onClick={(e) => { e.stopPropagation(); onPrev(); }}
-                            className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/70 text-text-main rounded-full p-2 sm:p-3 shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:bg-white ${isAnimating && !isClosing ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+                            onClick={onPrev}
+                            style={{
+                                position: 'absolute',
+                                left: '10px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                background: 'rgba(255,255,255,0.7)',
+                                borderRadius: '50%',
+                                padding: '8px',
+                                border: 'none',
+                                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                                cursor: 'pointer',
+                            }}
                             aria-label="Imagem Anterior"
                         >
                             <ChevronLeft size={28} />
                         </button>
                         <button
-                            onClick={(e) => { e.stopPropagation(); onNext(); }}
-                            className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/70 text-text-main rounded-full p-2 sm:p-3 shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:bg-white ${isAnimating && !isClosing ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+                            onClick={onNext}
+                            style={{
+                                position: 'absolute',
+                                right: '10px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                background: 'rgba(255,255,255,0.7)',
+                                borderRadius: '50%',
+                                padding: '8px',
+                                border: 'none',
+                                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                                cursor: 'pointer',
+                            }}
                             aria-label="Próxima Imagem"
                         >
                             <ChevronRight size={28} />
                         </button>
                     </>
                 )}
+                <button
+                    onClick={handleClose}
+                    style={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: '10px',
+                        background: 'white',
+                        borderRadius: '50%',
+                        padding: '8px',
+                        border: 'none',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                        cursor: 'pointer',
+                    }}
+                    aria-label="Fechar"
+                >
+                    <X size={24} />
+                </button>
             </div>
-            
-            {/* Close Button - stays fixed to viewport */}
-            <button
-                onClick={(e) => { e.stopPropagation(); handleClose(); }}
-                className={`fixed top-4 right-4 bg-white text-text-main rounded-full p-2 shadow-lg transition-all duration-300 ease-in-out hover:scale-110 z-70 ${isAnimating && !isClosing ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
-                aria-label="Fechar"
-            >
-                <X size={24} />
-            </button>
         </div>
     );
 };
@@ -292,7 +353,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, onImageClick, isChe
                                 alt={`${item.title} - Imagem ${index + 1}`} 
                                 className="w-full h-full object-contain flex-shrink-0 cursor-pointer"
                                 onError={handleImageError}
-                                onClick={(e) => onImageClick(item, index, e.currentTarget)}
+                                //onClick={(e) => onImageClick(item, index, e.currentTarget)}
                             />
                         );
                     })}
@@ -632,7 +693,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
         }).catch(err => console.error('Failed to copy link: ', err));
     }, []);
 
-    const basePath = 'https://labirintar.github.io/simuladorRede3d/diagnostico/';
+    const basePath = 'https://clubesa.github.io/simuladorRede3d/diagnostico/';
     const handleOpenLightbox = useCallback((item: PortfolioItem, imageIndex: number, element: HTMLElement) => {
         const imageUrls = item.images.map(imgFile => `${basePath}${item.folder}/${imgFile}`);
         element.style.visibility = 'hidden';
