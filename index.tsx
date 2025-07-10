@@ -988,7 +988,7 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
                             <div>
                                 <h4 className="font-lora text-xl mb-2">Ganho com Modelo 1 (Split)</h4>
                                 <p className="text-3xl font-bold text-primary">{formatCurrency(gainModel1)}</p>
-                                <p className="text-sm text-gray-500 italic mt-1">15% da receita total de {formatCurrency(totalRevenue)}</p>
+                                <p className="text-sm text-gray-500 italic mt-1">10% da receita total de {formatCurrency(totalRevenue)}</p>
                             </div>
                             <div className="mt-4 flex items-center justify-center bg-light-bg p-3 rounded-lg">
                                 <input 
