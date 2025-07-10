@@ -864,9 +864,9 @@ const PartnershipSection: React.FC = () => {
                     border="border-primary"
                     activityDuration="2 horas de atividade/dia"
                     details={[
-                        '<span>50%</span> LABirintar',
-                        '<span>35%</span> Educador',
-                        '<strong class="font-bold"><span>15%</span> Escola</strong>',
+                        '<span>40%</span> LABirintar',
+                        '<span>50%</span> Educador + Empresa',
+                        '<strong class="font-bold"><span>10%</span> Escola</strong>',
                     ]}
                     note="A escola oferece o espaço e a LABirintar cuida de toda a operação."
                 />
@@ -876,11 +876,11 @@ const PartnershipSection: React.FC = () => {
                     border="border-secondary"
                     activityDuration="2 horas de atividade/dia"
                     details={[
-                        '<strong class="font-bold"><span>50%</span> Escola</strong>',
-                        '<span>35%</span> Educador',
-                        '<span>15%</span> LABirintar',
+                        '<strong class="font-bold"><span>40%</span> Escola</strong>',
+                        '<span>50%</span> Educador + Empresa',
+                        '<span>10%</span> LABirintar',
                     ]}
-                    note="A escola se torna o motor comercial e fica com a maior parte da receita. O custo fixo da assinatura corresponde ao valor médio da mensalidade do curricular."
+                    note="A escola se torna o motor comercial e fica grande parte da receita. Terá um custo fixo de assinatura mensal que será entre R$2.500 e R$4.000, a depender do modelo escolhido."
                 />
             </div>
         </section>
