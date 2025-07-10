@@ -555,7 +555,7 @@
             const ticketMedio = tickets[frequencia];
             document.getElementById('s1_frequencia_val').textContent = `${frequencia}x (Ticket: ${formatCurrency(ticketMedio)})`;
 
-            const comissao = 0.05;
+            const comissao = 0.07;
             const faturamentoTotal = escolas * turmas * alunosPorTurma * ticketMedio;
             const ganhoMensal = faturamentoTotal * comissao;
 
@@ -596,7 +596,7 @@
             const ticketMedio = tickets[frequencia];
             document.getElementById('s2_frequencia_val').textContent = `${frequencia}x (Ticket: ${formatCurrency(ticketMedio)})`;
             
-            const revenueShareBMQ = 0.45;
+            const revenueShareBMQ = 0.50;
             const receitaBrutaTotal = escolas * turmas * alunosPorTurma * ticketMedio;
             const receitaBMQ = receitaBrutaTotal * revenueShareBMQ;
             

@@ -880,7 +880,7 @@ const PartnershipSection: React.FC = () => {
                         '<span>50%</span> Educador + Empresa',
                         '<span>10%</span> LABirintar',
                     ]}
-                    note="A escola se torna o motor comercial e fica grande parte da receita. Terá um custo fixo de assinatura mensal que será entre R$2.500 e R$4.000, a depender do modelo escolhido."
+                    note="A escola se torna o motor comercial e fica grande parte da receita. Terá um custo fixo de assinatura mensal que será entre R$2.500 e R$4.000, a depender do modelo escolhido."
                 />
             </div>
         </section>
@@ -915,9 +915,9 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
     }, [mensalidadeExtra, mensalidadeCurricularNum]);
     
     const totalRevenue = useMemo(() => alunosExtra * mensalidadeExtra, [alunosExtra, mensalidadeExtra]);
-    const gainModel1 = useMemo(() => totalRevenue * 0.15, [totalRevenue]);
+    const gainModel1 = useMemo(() => totalRevenue * 0.10, [totalRevenue]);
     const costModel2 = useMemo(() => (mensalidadeCurricularNum > 0 ? mensalidadeCurricularNum : 2000), [mensalidadeCurricularNum]);
-    const gainModel2 = useMemo(() => (totalRevenue * 0.50) - costModel2, [totalRevenue, costModel2]);
+    const gainModel2 = useMemo(() => (totalRevenue * 0.40) - costModel2, [totalRevenue, costModel2]);
 
     const getFadeInClass = (isVisible: boolean) => 
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
@@ -1009,7 +1009,7 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
                            <div>
                                 <h4 className="font-lora text-xl mb-2">Ganho com Modelo 2 (Assinatura)</h4>
                                 <p className="text-3xl font-bold text-primary">{formatCurrency(gainModel2)}</p>
-                                <p className="text-sm text-gray-500 italic mt-1">50% ({formatCurrency(totalRevenue * 0.5)}) - Assinatura ({formatCurrency(costModel2)})</p>
+                                <p className="text-sm text-gray-500 italic mt-1">40% ({formatCurrency(totalRevenue * 0.4)}) - Assinatura ({formatCurrency(costModel2)})</p>
                            </div>
                            <div className="mt-4 flex items-center justify-center bg-light-bg p-3 rounded-lg">
                                 <input 
@@ -1254,9 +1254,9 @@ const App: React.FC = () => {
         const mensalidadeExtra = ticketPrices[simFrequenciaSemanal];
         const percentualCurricular = (!mensalidadeCurricularNum || mensalidadeCurricularNum <= 0) ? '-' : `${((mensalidadeExtra / mensalidadeCurricularNum) * 100).toFixed(1)}%`;
         const totalRevenue = alunosExtra * mensalidadeExtra;
-        const gainModel1 = totalRevenue * 0.15;
+        const gainModel1 = totalRevenue * 0.10;
         const costModel2 = (mensalidadeCurricularNum > 0 ? mensalidadeCurricularNum : 2000);
-        const gainModel2 = (totalRevenue * 0.50) - costModel2;
+        const gainModel2 = (totalRevenue * 0.40) - costModel2;
         
         return { alunosExtra, mensalidadeExtra, percentualCurricular, totalRevenue, gainModel1, gainModel2 };
     }, [simTotalAlunos, simMetaConversao, simFrequenciaSemanal, simMensalidadeCurricular]);
