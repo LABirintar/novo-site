@@ -44,13 +44,16 @@
   "imports": {
     "react": "https://esm.sh/react@^19.1.0",
     "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react/": "https://esm.sh/react@^19.1.0/"
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.525.0"
   }
 }
 </script>
 </head>
   <body class="bg-neutral-100 font-sans">
     <div id="root"></div>
-    <script type="module" src="/idb.js"></script>
+    <!-- Script processado pelo Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="/idb.tsx"></script>
   </body>
 </html>
