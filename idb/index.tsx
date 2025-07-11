@@ -101,12 +101,6 @@ const RocketLaunchIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const ArrowRightIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-  </svg>
-);
-
 const CheckCircleIcon = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -243,6 +237,7 @@ const Scenarios = () => {
                   ? 'bg-brand-primary text-white shadow-md'
                   : 'bg-white text-neutral-600 hover:bg-white hover:text-brand-primary hover:shadow-md'
               }`}
+              aria-pressed={activeScenario === scenario.id}
             >
               {scenario.title}
             </button>
