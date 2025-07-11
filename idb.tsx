@@ -106,7 +106,7 @@ const InfoCard = ({ title, icon, children }) => {
 const Header = () => (
   React.createElement("header", { className: "text-center py-12 bg-white shadow-sm" },
     React.createElement("div", { className: "container mx-auto px-4" },
-      React.createElement("img", { src: "logoslabirintar/Labirintar_RGB.png", alt: "LABirintar Logo", className: "w-auto h-24 mx-auto mb-6" }),
+      React.createElement("img", { src: "./logoslabirintar/Labirintar_RGB.png", alt: "LABirintar Logo", className: "w-auto h-24 mx-auto mb-6" }),
       React.createElement("h1", { className: "text-4xl md:text-5xl font-bold text-brand-primary mb-2" }, "Proposta de Parceria Estratégica"),
       React.createElement("p", { className: "text-2xl font-semibold text-neutral-800" }, "+ Instituto IDB"),
       React.createElement("p", { className: "mt-4 text-lg text-neutral-600 max-w-3xl mx-auto" }, "Construindo o futuro da Educação Integral através da sinergia entre curadoria pedagógica e inteligência de dados.")
