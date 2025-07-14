@@ -7,60 +7,94 @@ const SCENARIOS = [
     id: 1,
     title: "Cenário 1",
     subtitle: "Parceria Estratégica de Leads e Prospecção Conjunta",
-    description: "Nesta fase inicial de baixa complexidade, Labirintar e IDB formalizam um acordo de compartilhamento de leads para otimizar a prospecção. Labirintar busca acelerar sua validação de clientes, enquanto o IDB necessita testar sua descoberta de clientes em um ecossistema real.",
+    description: "Neste primeiro cenário, LABirintar e IDB estabelecem uma colaboração básica com foco em compartilhamento de leads e inteligência comercial conjunta. O objetivo é ativar um canal de aprendizado mútuo e validação inicial de mercado, em linha com as fases atuais das duas startups: Customer Validation (LABirintar) e Customer Discovery (IDB).",
+    objectives: [
+      "Oferecer acesso mútuo a bases de potenciais clientes qualificados.",
+      "Reduzir o Custo de Aquisição de Clientes (CAC) por meio de recomendações qualificadas.",
+      "Observar a receptividade do mercado à inteligência de dados no contraturno escolar.",
+      "Testar sinergia entre linguagem comercial, tom institucional e perfis de decisão."
+    ],
     benefits: {
       labirintar: [
-        "Acesso a uma base de potenciais clientes qualificados pelo IDB.",
-        "Validação inicial do interesse do mercado em inteligência de dados.",
-        "Potencial redução do Custo de Aquisição de Clientes (CAC) via indicações."
+        "Acesso a um novo perfil de leads interessados em dados e indicadores educacionais.",
+        "Teste da aderência do discurso de gestão automatizada com tom mais analítico.",
+        "Possibilidade de antecipar objeções comerciais relacionadas à análise de impacto."
       ],
       idb: [
-        "Acesso à rede de escolas e educadores da Labirintar para prospecção.",
-        "Oportunidade de testar e validar o modelo de 'descoberta de cliente'.",
-        "Geração de 'testemunhos' e casos de uso iniciais com baixo risco."
+        "Acesso a uma rede viva de escolas em busca de soluções inovadoras no contraturno.",
+        "Oportunidade de observar a dor real do campo e testar sua proposta de valor.",
+        "Construção de pipeline com base em relações de confiança já estabelecidas pela LABirintar."
       ]
     },
-    remuneration: "Inicialmente, a troca de indicações não é remunerada, focando no feedback mútuo. Prevê-se uma comissão simbólica (ex: 2%) sobre o faturamento inicial de um lead convertido para incentivar a qualidade.",
+    remuneration: [
+      "Troca mútua de leads qualificados, com breve briefing de perfil e contexto.",
+      "Sem remuneração fixa: foco em aprendizado e confiança.",
+      "Comissão simbólica sobre conversões efetivas para incentivar o cuidado com a indicação."
+    ],
   },
   {
     id: 2,
     title: "Cenário 2",
-    subtitle: "Integração de Valor: Solução IDB na Plataforma Labirintar",
-    description: "Evoluindo a parceria, o IDB integraria suas funcionalidades de inteligência de dados e dashboards preditivos à plataforma Labirintar, transformando-a em uma fonte viva de dados e elevando sua proposta de valor.",
+    subtitle: "Integração de Valor: Solução IDB na Plataforma LABirintar",
+    description: "Neste segundo cenário, a parceria evolui para um nível de integração sistêmica, com a incorporação das funcionalidades de inteligência preditiva e análise de dados do IDB na plataforma da LABirintar, transformando-a em uma fonte viva de dados e elevando sua proposta de valor. A solução passa a oferecer, além da gestão automatizada do contraturno, insights orientados por dados reais, fortalecendo seu posicionamento como uma EdTech inteligente.",
+    objectives: [
+      "Transformar a plataforma da LABirintar em uma ferramenta analítica viva, com dashboards, indicadores de engajamento e mapas de habilidades.",
+      "Oferecer às escolas dados tangíveis sobre o impacto das atividades extracurriculares no desenvolvimento das crianças.",
+      "Validar a tecnologia do IDB em contexto real e crescente, com feedback imediato.",
+    ],
     benefits: {
       labirintar: [
-        "Oferta de insights sobre retenção, engajamento e desempenho curricular.",
-        "Aumento do valor percebido da plataforma, atraindo escolas e investidores.",
-        "Diferenciação competitiva significativa no mercado EdTech."
+        "Aumento expressivo de valor percebido da plataforma, com narrativa de impacto educacional baseado em evidência (oferta de insights sobre retenção, engajamento e desempenho curricular)",
+        "Diferenciação competitiva radical: nenhuma outra solução no contraturno oferece inteligência analítica real.",
+        "Atração de investidores interessados em EdTech com camada preditiva validada."
       ],
       idb: [
-        "Ganho de escala ao ter sua solução embarcada e testada em um ecossistema crescente.",
-        "Acesso a uma base de dados real e rica para refinar seus modelos preditivos.",
-        "Validação de mercado e credibilidade ao ter sua tecnologia em uso por uma EdTech."
+        "Ganho de escala e tração de mercado com embarque em um produto em expansão.",
+        "Validação em campo de sua solução analítica, com dados reais e em uso cotidiano.",
+        "Geração de credibilidade institucional ao ser reconhecido como parceiro tecnológico de uma EdTech inovadora."
       ]
     },
-    remuneration: "Labirintar remunera o IDB com uma taxa de serviço (fixa ou por usuário). Adicionalmente, o IDB recebe uma porcentagem (5-10%) sobre a receita incremental gerada pelas funcionalidades de inteligência de dados.",
-    equity: "Como contrapartida pelos ativos (tecnologia e dados), a Labirintar poderia ceder uma participação minoritária (1-2%) de equity ao IDB, alinhando interesses a longo prazo."
+    remuneration: [
+      "Integração técnica: funcionalidades do IDB embarcadas via API ou componente nativo na plataforma LABirintar.",
+      "Remuneração híbrida: Fee fixo ou por usuário ativo, referente ao serviço técnico e participação percentual sobre receita incremental gerada por planos premium ou funcionalidades de inteligência.",
+      "Equity opcional: A LABirintar pode ceder um percentual minoritário de equity ao IDB em reconhecimento pelo aporte tecnológico e estratégico. A participação pode ser vinculada a métricas de performance ou rodadas de funding.",
+    ],
+    equity: undefined,
   },
   {
     id: 3,
     title: "Cenário 3",
     subtitle: "Spin-off Estratégica e Fusão Operacional",
-    description: "O IDB é vinculado à Labirintar como uma 'spin-off estratégica', com a Labirintar atuando como investidora. Esta fase evolui para a fusão das operações de mercado, produção e financeiro, criando um fluxo unificado para formar uma 'plataforma nacional de inteligência educacional'.",
+    description: `A união entre LABirintar e Instituto IDB configura uma EdTech única, que entrega gestão pedagógica integrada à inteligência de dados, formando uma solução completa e inovadora para o contraturno escolar.
+Esse diferencial competitivo posiciona a parceria como referência na transição para a Educação Integral no Brasil.
+A validação simultânea das duas soluções e a geração de dados estratégicos sobre engajamento, inadimplência e desempenho agregam valor mensurável ao negócio, ampliando o potencial de um exit futuro via fusão ou aquisição com grandes grupos educacionais.
+O modelo de equity cruzado demonstra compromisso de longo prazo, alinha interesses e fortalece a governança, sinal claro para investidores de que se trata de uma construção sólida, coesa e escalável.`,
+    objectives: [
+      "Consolidar uma operação única capaz de escalar com profundidade técnica e intencionalidade pedagógica.",
+      "Posicionar a LABirintar como hub nacional de inovação em Educação Integral, com frente de dados própria.",
+      "Dar ao IDB estrutura, apoio estratégico e integração comercial para acelerar e sustentar seu crescimento.",
+      "Criar um ecossistema com densidade institucional para atrair grandes investidores e políticas públicas."
+    ],
     benefits: {
       labirintar: [
-        "Posicionamento como 'hub de inovação' e criação de um novo braço de negócio (data intelligence).",
-        "Acesso prioritário a inovações do IDB, fortalecendo o portfólio.",
-        "Maximização de sinergias e eficiências operacionais com a fusão."
+        "Criação de um novo braço de negócios de alto valor agregado (Data Intelligence).",
+        "Propriedade de uma solução analítica com diferencial competitivo raro no mercado.",
+        "Fortalecimento institucional como plataforma, instituto e rede.",
+        "Potencial de verticalizar a geração de conhecimento e monetizar dados com base ética."
       ],
       idb: [
-        "Aceleração do desenvolvimento com suporte estruturado e mentoria.",
-        "Minimização de custos e acesso a um pipeline de clientes qualificado.",
-        "Estrutura robusta para escalar nacionalmente através da operação integrada."
+        "Aceleração técnica e comercial com acesso a pipeline ativo e redes da LABirintar.",
+        "Redução de riscos operacionais e estrutura de negócio compartilhada.",
+        "Validação de mercado acelerada, com apoio narrativo, pedagógico e institucional.",
+        "Participação em uma construção coletiva com potencial nacional."
       ]
     },
-    remuneration: "A Labirintar realiza um aporte (financeiro ou em serviços) no IDB. Com a fusão, as receitas são combinadas e os custos geridos centralmente, com a governança unificada sob um Acordo de Acionistas.",
-    equity: "A Labirintar recebe uma participação societária no IDB (ex: 5-10%). Na fusão, o 'cap table' é consolidado, redefinindo as participações com base no valuation e nos ativos estratégicos de cada empresa."
+    remuneration: [
+      "A Labirintar realiza um aporte (em serviços) no IDB. As receitas passam a ser combinadas e os custos geridos de forma centralizada, com governança unificada sob um Acordo de Acionistas.",
+      "A Labirintar recebe participação societária no IDB. Na integração societária (cap table combinado), as participações são redefinidas com base no valuation e nos ativos estratégicos de cada empresa.",
+      "Possibilidade de consolidar a marca IDB como ‘LABirintar Data’ ou ‘Núcleo de Inteligência Educacional’."
+    ],
+    equity: undefined,
   }
 ];
 
@@ -111,8 +145,8 @@ const Header = () => (
         React.createElement("img", { src: "./logoslabirintar/idb.png", alt: "Idb Logo", className: "w-auto h-12" })
       ),
       React.createElement("h1", { className: "text-4xl md:text-5xl font-bold text-brand-primary mb-2" }, "Proposta de Parceria Estratégica"),
-      React.createElement("p", { className: "text-2xl font-semibold text-neutral-800" }, "+ Instituto IDB"),
-      React.createElement("p", { className: "mt-4 text-lg text-neutral-600 max-w-3xl mx-auto" }, "Construindo o futuro da Educação Integral através da sinergia entre curadoria pedagógica e inteligência de dados.")
+      //React.createElement("p", { className: "text-2xl font-semibold text-neutral-800" }, "+ Instituto IDB"),
+      React.createElement("p", { className: "mt-4 text-lg text-neutral-600 max-w-3xl mx-auto" }, "Educação Integral como Inteligência Viva: uma parceria entre LABirintar e IDB para transformar o extracurricular em dado, política e futuro.")
     )
   )
 );
@@ -120,7 +154,8 @@ const Header = () => (
 const Introduction = () => (
   React.createElement("section", { className: "py-16" },
     React.createElement("div", { className: "container mx-auto px-4" },
-      React.createElement("h2", { className: "text-3xl font-bold text-center text-neutral-800 mb-12" }, "Uma Sinergia Visionária"),
+      React.createElement("h2", { className: "text-3xl font-bold text-center text-neutral-800 mb-4" }, "Uma Sinergia Visionária"),
+      React.createElement("p", { className: "text-center text-neutral-800 mb-12" }, "Um ecossistema de tecnologia + pesquisa educacional + impacto"),
       React.createElement("div", { className: "grid md:grid-cols-2 gap-8 items-start" },
         React.createElement(InfoCard, { title: "LABirintar", icon: React.createElement(RocketLaunchIcon, { className: "w-6 h-6 text-brand-primary" }) },
           React.createElement("p", null, "Plataforma de gestão e curadoria para o contraturno escolar. Em fase de ", React.createElement("strong", null, "Validação de Cliente"), ", busca escalar seu modelo de negócio e validar seu Product-Market Fit (PMF) com agilidade, capitalizada por investimento anjo.")
@@ -137,6 +172,16 @@ const ScenarioContent = ({ scenario }) => (
   React.createElement("div", { className: "bg-white rounded-lg shadow-lg p-8 mt-6 border border-gray-200 animate-fade-in" },
     React.createElement("h3", { className: "text-2xl font-bold text-neutral-800 mb-2" }, scenario.subtitle),
     React.createElement("p", { className: "text-neutral-600 mb-8" }, scenario.description),
+    scenario.objectives && scenario.objectives.length > 0 && (
+      React.createElement("div", { className: "mb-8" },
+        React.createElement("h4", { className: "text-lg font-semibold text-neutral-800 mb-2" }, "Objetivos:"),
+        React.createElement("ul", { className: "list-disc pl-6 space-y-1 text-neutral-700" },
+          scenario.objectives.map((objective, idx) =>
+            React.createElement("li", { key: idx }, objective)
+          )
+        )
+      )
+    ),
     React.createElement("div", { className: "grid md:grid-cols-2 gap-8 mb-8" },
       React.createElement("div", null,
         React.createElement("h4", { className: "text-lg font-semibold text-neutral-800 mb-3" }, "Benefícios para LABirintar"),
@@ -164,8 +209,16 @@ const ScenarioContent = ({ scenario }) => (
     React.createElement("div", null,
       React.createElement("h4", { className: "text-lg font-semibold text-neutral-800 mb-3" }, "Modelo de Colaboração"),
       React.createElement("div", { className: "bg-neutral-100 p-4 rounded-lg border border-gray-200" },
-        React.createElement("p", { className: "text-neutral-600 mb-3" },
-          React.createElement("strong", { className: "text-neutral-700" }, "Remuneração:"), " ", scenario.remuneration
+        Array.isArray(scenario.remuneration) ? (
+          React.createElement("ul", { className: "list-disc pl-6 space-y-1 text-neutral-700 mb-3" },
+            scenario.remuneration.map((item, idx) =>
+              React.createElement("li", { key: idx }, item)
+            )
+          )
+        ) : (
+          React.createElement("p", { className: "text-neutral-600 mb-3" },
+            React.createElement("strong", { className: "text-neutral-700" }, "Remuneração:"), " ", scenario.remuneration
+          )
         ),
         scenario.equity && React.createElement("p", { className: "text-neutral-600" },
           React.createElement("strong", { className: "text-neutral-700" }, "Equity:"), " ", scenario.equity
@@ -217,21 +270,21 @@ const StrategicAnalysis = () => (
             React.createElement(HandshakeIcon, { className: "w-8 h-8 text-brand-primary mr-4 mt-1 flex-shrink-0" }),
             React.createElement("div", null,
               React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Proposta de Valor Combinada"),
-              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A união cria uma EdTech única que oferece desde a curadoria pedagógica até a inteligência preditiva do impacto dessas atividades, uma solução de ponta a ponta com forte diferenciação competitiva.")
+              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A união entre LABirintar e Instituto IDB dá origem a uma EdTech singular no mercado: uma plataforma que integra gestão pedagógica sensível com inteligência preditiva aplicada ao contraturno escolar. Trata-se de uma solução de ponta a ponta, com forte diferenciação competitiva e capacidade real de gerar valor tanto para escolas quanto para redes educacionais.")
             )
           ),
           React.createElement("div", { className: "flex items-start" },
             React.createElement(RocketLaunchIcon, { className: "w-8 h-8 text-brand-primary mr-4 mt-1 flex-shrink-0" }),
             React.createElement("div", null,
               React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Validação e Potencial de Exit"),
-              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A parceria reforça a validação de mercado de ambas as empresas. A capacidade de gerar e analisar dados sobre desempenho, retenção e inadimplência agrega valor mensurável, aprimorando o potencial para um futuro exit (M&A) com grandes grupos educacionais.")
+              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A parceria acelera a validação de mercado de ambas as soluções, ampliando a confiança institucional e comercial. A capacidade de gerar, analisar e transformar dados sobre engajamento, retenção, inadimplência e desenvolvimento infantil em indicadores acionáveis representa valor mensurável, aprimorando o potencial de um futuro exit (M&A) junto a grupos educacionais, fundos de impacto ou plataformas de tecnologia em expansão.")
             )
           ),
           React.createElement("div", { className: "flex items-start" },
             React.createElement(ChartBarIcon, { className: "w-8 h-8 text-brand-primary mr-4 mt-1 flex-shrink-0" }),
             React.createElement("div", null,
               React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Governança e Alinhamento"),
-              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A participação mútua de equity, mesmo que minoritária nos estágios iniciais, alinha os interesses para o longo prazo e demonstra um compromisso estratégico que vai além de uma simples relação cliente-fornecedor, o que é altamente valorizado por investidores.")
+              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A participação societária mútua, ainda que minoritária em um primeiro momento, garante alinhamento de interesses no longo prazo, sinaliza compromisso institucional e rompe com o modelo tradicional de fornecedor vs. cliente. Para investidores, essa configuração indica maturidade estratégica, coerência de visão e resiliência na construção conjunta de valor.")
             )
           )
         )
