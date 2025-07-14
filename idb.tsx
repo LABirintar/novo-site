@@ -240,7 +240,7 @@ const Scenarios = () => {
   return React.createElement("section", { className: "py-16 bg-brand-light" },
     React.createElement("div", { className: "container mx-auto px-4" },
       React.createElement("h2", { className: "text-3xl font-bold text-center text-neutral-800 mb-2" }, "Cenários de Parceria Evolutiva"),
-      React.createElement("p", { className: "text-center text-neutral-600 mb-12 max-w-2xl mx-auto" }, "Propusemos uma jornada de colaboração crescente, permitindo que a parceria se aprofunde de forma orgânica e estratégica."),
+      React.createElement("p", { className: "text-center text-neutral-600 mb-12 max-w-2xl mx-auto" }, "Propomos uma jornada de colaboração crescente, permitindo que a parceria se aprofunde de forma orgânica e estratégica."),
       React.createElement("div", { className: "flex flex-wrap justify-center gap-2 md:gap-4 mb-6" },
         SCENARIOS.map(scenario =>
           React.createElement("button", {
