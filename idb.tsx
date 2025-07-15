@@ -65,34 +65,35 @@ const SCENARIOS = [
     id: 3,
     title: "Cenário 3",
     subtitle: "Spin-off Estratégica e Fusão Operacional",
-    description: `A união entre LABirintar e Instituto IDB configura uma EdTech única, que entrega gestão pedagógica integrada à inteligência de dados, formando uma solução completa e inovadora para o contraturno escolar.
-Esse diferencial competitivo posiciona a parceria como referência na transição para a Educação Integral no Brasil.
-A validação simultânea das duas soluções e a geração de dados estratégicos sobre engajamento, inadimplência e desempenho agregam valor mensurável ao negócio, ampliando o potencial de um exit futuro via fusão ou aquisição com grandes grupos educacionais.
-O modelo de equity cruzado demonstra compromisso de longo prazo, alinha interesses e fortalece a governança, sinal claro para investidores de que se trata de uma construção sólida, coesa e escalável.`,
+    description: `Neste cenário partimos para uma ideia de validação simultânea das soluções e do potencial que a parceria apresenta ao gerar dados estratégicos sobre engajamento, inadimplência e desenvolvimento, aumentando o valor percebido, a escalabilidade e o potencial de atração para investidores e/ou grupos educacionais no futuro.`,
     objectives: [
-      "Consolidar uma operação única capaz de escalar com profundidade técnica e intencionalidade pedagógica.",
-      "Posicionar a LABirintar como hub nacional de inovação em Educação Integral, com frente de dados própria.",
-      "Dar ao IDB estrutura, apoio estratégico e integração comercial para acelerar e sustentar seu crescimento.",
-      "Criar um ecossistema com densidade institucional para atrair grandes investidores e políticas públicas."
+      "Possibilitar uma integração inteligente e progressiva, que respeita a identidade de cada iniciativa, ao mesmo tempo em que soma competências e multiplica possibilidades.",
+      "Criar uma operação ágil e escalável, que una excelência técnica, gestão pedagógica e inteligência de dados em soluções completas para o contraturno escolar.",
+      "Posicionar a LABirintar como um hub nacional de inovação em Educação Integral, com capacidade de gerar, interpretar e aplicar dados próprios para apoiar escolas, famílias e políticas públicas.",
+      "Oferecer ao IDB suporte estratégico, estrutura operacional e canais comerciais para acelerar sua atuação e aprofundar seu impacto no ecossistema educacional.",
+      " Atrair investidores e articulações públicas com um projeto sólido, ético e visionário, que demonstra consistência institucional e alinhamento de longo prazo."
     ],
     benefits: {
       labirintar: [
-        "Criação de um novo braço de negócios de alto valor agregado (Data Intelligence).",
-        "Propriedade de uma solução analítica com diferencial competitivo raro no mercado.",
-        "Fortalecimento institucional como plataforma, instituto e rede.",
-        "Potencial de verticalizar a geração de conhecimento e monetizar dados com base ética."
+      "Tecnologia e inteligência de dados embarcada: acesso direto à capacidade técnica do IDB para embutir inteligência preditiva e geração de dados na plataforma e operação da LABirintar./ Diferencial competitivo frente a outras soluções educacionais focadas apenas em conteúdo ou operação.",
+      "Elevação do valor percebido: passa a oferecer às escolas não apenas uma rede de educadores e gestão automatizada, mas dados sobre engajamento, desenvolvimento infantil, frequência, inadimplência e impacto pedagógico, fortalecendo a proposta de valor.",
+      "Atratividade para investimento e políticas públicas: com dados próprios, a LABirintar se aproxima do perfil de instituição de pesquisa aplicada e não apenas de operação, o que abre portas para investidores, parcerias governamentais e instituições de fomento.",
+      "Economia de tempo e recursos: ao apoiar e embarcar o IDB como parceiro técnico, evita desenvolver do zero capacidades complexas em data science e dashboards educacionais, ganhando velocidade de execução.",
+      "Fortalecimento institucional: a presença do IDB como spin-off e parceiro técnico amplia a densidade institucional da LABirintar, mostrando ao mercado que ela opera dentro de um ecossistema com visão de futuro e soluções integradas."  
       ],
       idb: [
-        "Aceleração técnica e comercial com acesso a pipeline ativo e redes da LABirintar.",
-        "Redução de riscos operacionais e estrutura de negócio compartilhada.",
-        "Validação de mercado acelerada, com apoio narrativo, pedagógico e institucional.",
-        "Participação em uma construção coletiva com potencial nacional."
+        "Validação rápida e aplicada: a LABirintar oferece um ambiente real de testes com escolas, educadores e famílias, encurtando o ciclo de descoberta de cliente e facilitando a validação de produto (Customer Discovery e Problem-Solution Fit).",
+        "Apoio comercial e estratégico: ganha acesso à base relacional, narrativas de venda e canais da LABirintar, além de apoio estratégico e visibilidade institucional como parte de um hub em expansão.",
+        "Sustentação operacional: apoio administrativo, jurídico, comercial e até mesmo técnico (design, conteúdo, automações) que o IDB ainda não estruturou sozinho, mas que já estão disponíveis na LABirintar.",
+        "Narrativa conjunta com propósito: posiciona-se desde cedo como uma EdTech com impacto claro em Educação Integral, com alinhamento ético e metodológico com o universo das Infâncias, algo raro no campo de dados educacionais.",
+        "Crescimento com lastro e reputação: a vinculação simbólica e institucional com a LABirintar fortalece a reputação do IDB, que passa a fazer parte de um ecossistema inovador com missão clara."
       ]
     },
     remuneration: [
-      "A Labirintar realiza um aporte (em serviços) no IDB. As receitas passam a ser combinadas e os custos geridos de forma centralizada, com governança unificada sob um Acordo de Acionistas.",
-      "A Labirintar recebe participação societária no IDB. Na integração societária (cap table combinado), as participações são redefinidas com base no valuation e nos ativos estratégicos de cada empresa.",
-      "Possibilidade de consolidar a marca IDB como ‘LABirintar Data’ ou ‘Núcleo de Inteligência Educacional’."
+      "A LABirintar realiza um aporte em ativos estratégicos no IDB (processos comerciais concebidos em teste, fornecedores de serviços de marketing, assessoria jurídica, suporte administrativo/financeiro, redes de escolas e gestão pedagógica). Em contrapartida, a LABirintar entra na sociedade do IDB, com participação proporcional ao valor estratégico de seus ativos e ao apoio oferecido. As receitas passam a ser compartilhadas e os custos operacionais coordenados com uma lógica de eficiência e visão sistêmica.",
+      "Estrutura e governança: propõe-se um Acordo de Acionistas com regras claras de decisão, remuneração, responsabilidades e proteção mútua. A proposta garante autonomia das partes e liberdade para ajustes conforme o avanço da parceria.",
+      "Caminho aberto para co-fundação: a depender da maturidade da colaboração, existe abertura e interesse de que Henrique se torne, futuramente, co-founder da LABirintar, mantendo-se também como fundador do IDB. Isso será construído com base na confiança, entrega mútua e desejo genuíno de evoluir juntos.",
+      "Visão institucional: o IDB pode ser posicionado como “LABirintar Data” ou “Núcleo de Inteligência Educacional”, com marca combinada ou dupla, conforme o contexto. Essa configuração amplia a força institucional da LABirintar como hub de inovação em Educação Integral com frente de dados própria."
     ],
     equity: undefined,
   }
