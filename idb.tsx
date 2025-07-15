@@ -270,22 +270,22 @@ const StrategicAnalysis = () => (
           React.createElement("div", { className: "flex items-start" },
             React.createElement(HandshakeIcon, { className: "w-8 h-8 text-brand-primary mr-4 mt-1 flex-shrink-0" }),
             React.createElement("div", null,
-              React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Proposta de Valor Combinada"),
-              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A união entre LABirintar e Instituto IDB dá origem a uma EdTech singular no mercado: uma plataforma que integra gestão pedagógica sensível com inteligência preditiva aplicada ao contraturno escolar. Trata-se de uma solução de ponta a ponta, com forte diferenciação competitiva e capacidade real de gerar valor tanto para escolas quanto para redes educacionais.")
+              React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Proposta de Valor Integrada"),
+              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A colaboração entre a LABirintar e o Instituto IDB dá origem a uma EdTech única no cenário nacional: uma plataforma que combina gestão pedagógica sensível com inteligência preditiva aplicada ao contraturno escolar. Trata-se de uma solução integrada e inovadora, com alto grau de diferenciação e potencial real de gerar valor tanto para escolas quanto para redes educacionais públicas e privadas.")
             )
           ),
           React.createElement("div", { className: "flex items-start" },
             React.createElement(RocketLaunchIcon, { className: "w-8 h-8 text-brand-primary mr-4 mt-1 flex-shrink-0" }),
             React.createElement("div", null,
-              React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Validação e Potencial de Exit"),
-              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A parceria acelera a validação de mercado de ambas as soluções, ampliando a confiança institucional e comercial. A capacidade de gerar, analisar e transformar dados sobre engajamento, retenção, inadimplência e desenvolvimento infantil em indicadores acionáveis representa valor mensurável, aprimorando o potencial de um futuro exit (M&A) junto a grupos educacionais, fundos de impacto ou plataformas de tecnologia em expansão.")
+              React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Validação estratégica e horizonte de crescimento"),
+              React.createElement("p", { className: "text-neutral-600 mt-1" }, "Ao unirem forças, LABirintar e IDB aceleram a validação de mercado de suas soluções, fortalecendo a confiança institucional e a atratividade comercial. A capacidade de gerar e transformar dados sobre engajamento, retenção, inadimplência e desenvolvimento infantil em indicadores acionáveis amplia o valor percebido e abre espaço para trajetórias futuras de investimento, aquisição estratégica (M&A) ou fusão com plataformas educacionais em expansão.")
             )
           ),
           React.createElement("div", { className: "flex items-start" },
             React.createElement(ChartBarIcon, { className: "w-8 h-8 text-brand-primary mr-4 mt-1 flex-shrink-0" }),
             React.createElement("div", null,
-              React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Governança e Alinhamento"),
-              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A participação societária mútua, ainda que minoritária em um primeiro momento, garante alinhamento de interesses no longo prazo, sinaliza compromisso institucional e rompe com o modelo tradicional de fornecedor vs. cliente. Para investidores, essa configuração indica maturidade estratégica, coerência de visão e resiliência na construção conjunta de valor.")
+              React.createElement("h4", { className: "text-xl font-bold text-neutral-800" }, "Governança colaborativa e visão de futuro"),
+              React.createElement("p", { className: "text-neutral-600 mt-1" }, "A participação societária cruzada, ainda que minoritária em um primeiro momento, assegura o alinhamento de interesses e sinaliza ao mercado um compromisso institucional sólido. Ao substituir a lógica tradicional de “fornecedor e cliente” por uma relação de cocriação e corresponsabilidade, o modelo inspira confiança e demonstra maturidade estratégica, visão compartilhada e resiliência na construção conjunta de valor.")
             )
           )
         )
