@@ -64,7 +64,7 @@ const SCENARIOS = [
   {
     id: 3,
     title: "Cenário 3",
-    subtitle: "Spin-off Estratégica e Fusão Operacional",
+    subtitle: "Spin-off Estratégica e Integração Operacional",
     description: `Neste cenário partimos para uma ideia de validação simultânea das soluções e do potencial que a parceria apresenta ao gerar dados estratégicos sobre engajamento, inadimplência e desenvolvimento, aumentando o valor percebido, a escalabilidade e o potencial de atração para investidores e/ou grupos educacionais no futuro.`,
     objectives: [
       "Possibilitar uma integração inteligente e progressiva, que respeita a identidade de cada iniciativa, ao mesmo tempo em que soma competências e multiplica possibilidades.",
