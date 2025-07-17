@@ -1210,7 +1210,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, contactDat
 // =================================================================================================
 // MAIN APP COMPONENT
 // =================================================================================================
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyc9yzE_1gecULA5nwOdrgcVR9VkGCKbWV17xnjUFvEpZzm5AkakuQZntjesyUW60Q0/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwgfSc9VBe2FViJNYVCDiiWGHm_4cl3f9zSLsTCo4ZKNjieMwiJJbxjIXiXopgiHR3C/exec';
 
 const App: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -1282,7 +1282,7 @@ const App: React.FC = () => {
         }
 
         const fullFormData = {
-            sessionId: sessionId.current,
+            SessionID: sessionId.current,
             Timestamp: new Date().toISOString(),
             ContatoNome: contactData.name,
             ContatoEmail: contactData.email,
