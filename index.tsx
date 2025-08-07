@@ -418,7 +418,7 @@ const TopBar: React.FC = () => {
       <div className="w-full bg-white shadow-sm fixed top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img src="logoslabirintar/Labirintar_Bubble.webp" alt="Logo LABirintar" className="h-6" />
+            <img src="logoslabirintar/Labirintar_Bubble.webp" alt="Logo LABirintar" className="h-10" />
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
