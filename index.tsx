@@ -409,6 +409,79 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, onImageClick, isChe
 
 // --- Main Components (from components/*) ---
 
+
+const TopBar: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <>
+      <div className="w-full bg-white shadow-sm fixed top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <img src="logoslabirintar/Labirintar_RGB.png" alt="Logo" className="h-6" />
+            <span className="font-bold text-secondary">LABIRINTAR</span>
+          </div>
+
+          <div className="hidden md:flex items-center space-x-4">
+            <a
+              href="https://labirintar.com.br/login"
+              className="bg-white text-secondary border border-secondary px-4 py-2 rounded font-bold hover:bg-secondary hover:text-white transition"
+            >
+              Entrar
+            </a>
+            <a
+              href="https://labirintar.com.br/login?m=signup"
+              className="bg-secondary text-white px-4 py-2 rounded font-bold hover:bg-orange-500 transition"
+            >
+              Cadastrar
+            </a>
+          </div>
+
+          <div className="md:hidden">
+            <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu mobile">
+              {menuOpen ? (
+                <X className="w-6 h-6 text-text-main" />
+              ) : (
+                <svg className="w-6 h-6 text-text-main" fill="none" stroke="currentColor" strokeWidth={2}
+                  viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {menuOpen && (
+        <div className="fixed inset-0 bg-white z-40 p-6 flex flex-col items-start gap-6 shadow-xl transition-all">
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center space-x-2">
+              <img src="logoslabirintar/Labirintar_RGB.png" alt="Logo" className="h-6" />
+              <span className="font-bold text-secondary">LABIRINTAR</span>
+            </div>
+            <button onClick={() => setMenuOpen(false)} aria-label="Fechar menu mobile">
+              <X className="w-6 h-6 text-gray-500" />
+            </button>
+          </div>
+
+          <a
+            href="https://labirintar.com.br/login"
+            className="w-full text-center border border-secondary text-secondary font-bold py-2 rounded"
+          >
+            Entrar
+          </a>
+          <a
+            href="https://labirintar.com.br/login?m=signup"
+            className="w-full text-center bg-secondary text-white font-bold py-2 rounded"
+          >
+            Cadastrar
+          </a>
+        </div>
+      )}
+    </>
+  );
+};
+
 const Hero: React.FC = () => {
     const [logoRef, isLogoVisible] = useFadeIn<HTMLImageElement>();
     const [titleRef, isTitleVisible] = useFadeIn<HTMLHeadingElement>();
@@ -418,7 +491,7 @@ const Hero: React.FC = () => {
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
 
     return (
-        <header className="relative h-screen flex flex-col items-center justify-center text-center p-4 bg-gradient-to-br from-accent-blue to-accent-lavender overflow-hidden">
+        <header className="relative h-screen flex flex-col items-center justify-center text-center p-4 pt-24 bg-gradient-to-br from-accent-blue to-accent-lavender overflow-hidden">
             <img 
                 ref={logoRef}
                 src="logoslabirintar/Labirintar_RGB.png" 
@@ -864,9 +937,9 @@ const PartnershipSection: React.FC = () => {
                     border="border-primary"
                     activityDuration="2 horas de atividade/dia"
                     details={[
-                        '<span>40%</span> LABirintar',
-                        '<span>50%</span> Educador + Empresa',
-                        '<strong class="font-bold"><span>10%</span> Escola</strong>',
+                        '<span>30%</span> LABirintar',
+                        '<span>35%</span> Educador + <span>15%</span> Empresa',
+                        '<strong class="font-bold"><span>20%</span> Escola</strong>',
                     ]}
                     note="A escola oferece o espaço e a LABirintar cuida de toda a operação."
                 />
@@ -876,11 +949,11 @@ const PartnershipSection: React.FC = () => {
                     border="border-secondary"
                     activityDuration="2 horas de atividade/dia"
                     details={[
-                        '<strong class="font-bold"><span>40%</span> Escola</strong>',
-                        '<span>50%</span> Educador + Empresa',
-                        '<span>10%</span> LABirintar',
+                        '<strong class="font-bold"><span>30%</span> Escola</strong>',
+                        '<span>35%</span> Educador + <span>15%</span> Empresa',
+                        '<span>20%</span> LABirintar',
                     ]}
-                    note="A escola se torna o motor comercial e fica grande parte da receita. Terá um custo fixo de assinatura mensal que será entre R$2.500 e R$4.000, a depender do modelo escolhido."
+                    note="A escola se torna o motor comercial e fica com grande parte da receita. Terá um custo fixo de assinatura mensal que será de R$2.000."
                 />
             </div>
         </section>
@@ -915,9 +988,9 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
     }, [mensalidadeExtra, mensalidadeCurricularNum]);
     
     const totalRevenue = useMemo(() => alunosExtra * mensalidadeExtra, [alunosExtra, mensalidadeExtra]);
-    const gainModel1 = useMemo(() => totalRevenue * 0.10, [totalRevenue]);
+    const gainModel1 = useMemo(() => totalRevenue * 0.20, [totalRevenue]);
     const costModel2 = useMemo(() => (mensalidadeCurricularNum > 0 ? mensalidadeCurricularNum : 2000), [mensalidadeCurricularNum]);
-    const gainModel2 = useMemo(() => (totalRevenue * 0.40) - costModel2, [totalRevenue, costModel2]);
+    const gainModel2 = useMemo(() => (totalRevenue * 0.30) - costModel2, [totalRevenue, costModel2]);
 
     const getFadeInClass = (isVisible: boolean) => 
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
@@ -988,7 +1061,7 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
                             <div>
                                 <h4 className="font-lora text-xl mb-2">Ganho com Modelo 1 (Split)</h4>
                                 <p className="text-3xl font-bold text-primary">{formatCurrency(gainModel1)}</p>
-                                <p className="text-sm text-gray-500 italic mt-1">10% da receita total de {formatCurrency(totalRevenue)}</p>
+                                <p className="text-sm text-gray-500 italic mt-1">20% da receita total de {formatCurrency(totalRevenue)}</p>
                             </div>
                             <div className="mt-4 flex items-center justify-center bg-light-bg p-3 rounded-lg">
                                 <input 
@@ -1009,7 +1082,7 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
                            <div>
                                 <h4 className="font-lora text-xl mb-2">Ganho com Modelo 2 (Assinatura)</h4>
                                 <p className="text-3xl font-bold text-primary">{formatCurrency(gainModel2)}</p>
-                                <p className="text-sm text-gray-500 italic mt-1">40% ({formatCurrency(totalRevenue * 0.4)}) - Assinatura ({formatCurrency(costModel2)})</p>
+                                <p className="text-sm text-gray-500 italic mt-1">30% ({formatCurrency(totalRevenue * 0.4)}) - Assinatura ({formatCurrency(costModel2)})</p>
                            </div>
                            <div className="mt-4 flex items-center justify-center bg-light-bg p-3 rounded-lg">
                                 <input 
@@ -1254,9 +1327,9 @@ const App: React.FC = () => {
         const mensalidadeExtra = ticketPrices[simFrequenciaSemanal];
         const percentualCurricular = (!mensalidadeCurricularNum || mensalidadeCurricularNum <= 0) ? '-' : `${((mensalidadeExtra / mensalidadeCurricularNum) * 100).toFixed(1)}%`;
         const totalRevenue = alunosExtra * mensalidadeExtra;
-        const gainModel1 = totalRevenue * 0.10;
+        const gainModel1 = totalRevenue * 0.20;
         const costModel2 = (mensalidadeCurricularNum > 0 ? mensalidadeCurricularNum : 2000);
-        const gainModel2 = (totalRevenue * 0.40) - costModel2;
+        const gainModel2 = (totalRevenue * 0.30) - costModel2;
         
         return { alunosExtra, mensalidadeExtra, percentualCurricular, totalRevenue, gainModel1, gainModel2 };
     }, [simTotalAlunos, simMetaConversao, simFrequenciaSemanal, simMensalidadeCurricular]);
@@ -1408,6 +1481,7 @@ const App: React.FC = () => {
 
     return (
         <div className="overflow-x-hidden min-h-screen flex flex-col">
+            <TopBar />
             <Hero />
             <main className="flex-1">
                 <VisionSection />
