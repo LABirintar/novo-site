@@ -867,6 +867,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
                 </div>
             </div>
 
+            {/* Pesquisa Diagnostica
             <div className="mt-24 bg-accent-blue p-8 sm:p-12 rounded-2xl grid md:grid-cols-2 gap-8 items-center">
                 <div className="text-center md:text-left">
                     <h4 className="font-lora text-2xl mb-4">Não tem certeza de quais experiências escolher?</h4>
@@ -899,7 +900,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
                     onNext={handleNextLightboxImage}
                     onPrev={handlePrevLightboxImage}
                 />
-            )}
+            )}*/}
         </section>
     );
 };
