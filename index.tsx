@@ -493,7 +493,7 @@ const Hero: React.FC = () => {
         <header
             className="relative h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden"
             style={{
-                backgroundImage: `url(./imagensFundo/img_inicial.jpg)`,
+                backgroundImage: `url(./imagensFundo/img_preto_branco.jpg)`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center 30%',
             }}
@@ -506,20 +506,27 @@ const Hero: React.FC = () => {
                 className={`w-[350px] max-w-[80%] mb-8 drop-shadow-md ${getFadeInClass(isLogoVisible)}`}
                 style={{ transitionDelay: '100ms' }}
             />
-            <h1 
-                ref={titleRef}
-                className={`font-lora text-black text-shadow text-[clamp(2.8rem,6vw,4.5rem)] leading-tight shadow-black/20 ${getFadeInClass(isTitleVisible)}`}
-                style={{ transitionDelay: '300ms' }}
-            >
-                Educar é ocupar o tempo com sentido.
-            </h1>
-            <p 
-                ref={subtitleRef}
-                className={`text-2xl text-black font-light tracking-wider mt-4 text-shadow shadow-black/15 ${getFadeInClass(isSubtitleVisible)}`}
-                style={{ transitionDelay: '500ms' }}
-            >
-                E sentido se constrói em rede.
-            </p>
+            <h1
+    ref={titleRef}
+    className={`font-lora text-[clamp(2.8rem,6vw,4.5rem)] leading-tight ${getFadeInClass(isTitleVisible)}`}
+    style={{
+        transitionDelay: '300ms',
+        color: '#000000ff'
+    }}
+>
+    Educar é ocupar o tempo com sentido.
+</h1>
+
+<p
+    ref={subtitleRef}
+    className={`text-2xl font-light tracking-wider mt-4 ${getFadeInClass(isSubtitleVisible)}`}
+    style={{
+        transitionDelay: '500ms',
+        color: '#000000ff'
+    }}
+>
+    E sentido se constrói em rede.
+</p>
         </header>
     );
 };
@@ -591,55 +598,76 @@ const ProblemSection: React.FC<ProblemSectionProps> = ({ rankings, setRankings, 
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
     
     return (
-        <section ref={sectionRef} className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(isVisible)}`}>
-            <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">A Cartografia do Desafio</h2>
+        <section
+  ref={sectionRef}
+  className={`w-full py-24 px-4 sm:px-8 bg-cover bg-center relative ${getFadeInClass(isVisible)}`}
+  style={{
+    backgroundImage: `url('/imagensFundo/img_chao.jpg')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+  }}
+>
+  <div className="absolute inset-0 bg-white/70"></div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-start mt-12">
-                <div>
-                    <p className="text-gray-600 mb-8">Classifique os desafios abaixo em ordem de importância para sua instituição (1 = mais importante).</p>
-                    <div className="space-y-4">
-                        {challenges.map(challenge => (
-                            <div key={challenge.id} className="flex justify-between items-center bg-light-bg p-4 rounded-xl">
-                                <p className="font-medium text-text-main pr-4">{challenge.text}</p>
-                                <select 
-                                    name={`ranking_${challenge.id}`}
-                                    value={rankings[challenge.id]}
-                                    onChange={handleRankingChange}
-                                    className="p-2 rounded-lg border-2 border-accent-blue font-bold cursor-pointer text-text-main bg-white" 
-                                    required
-                                >
-                                    <option value="">Prioridade</option>
-                                    {[1, 2, 3].map(num => (
-                                        <option 
-                                            key={num} 
-                                            value={num}
-                                            disabled={selectedValues.includes(String(num)) && rankings[challenge.id] !== String(num)}
-                                        >
-                                            {num}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+  <div className="relative container mx-auto max-w-5xl">
+    <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
+      A Cartografia do Desafio
+    </h2>
 
-                <div className="bg-light-bg rounded-2xl p-8 text-center shadow-sm">
-                    <Map className="w-20 h-20 text-secondary mx-auto mb-6" strokeWidth={1.5} />
-                    <div className="text-left">
-                        <label htmlFor="open-challenge" className="block font-semibold mb-2 text-text-main">Quais são os maiores desafios do seu contraturno hoje?</label>
-                        <textarea 
-                            id="open-challenge" 
-                            name="desafio_aberto" 
-                            placeholder="Descreva aqui..."
-                            className="w-full min-h-[120px] p-4 rounded-xl border-2 border-accent-blue font-inter text-base resize-vertical focus:ring-2 focus:ring-primary focus:outline-none bg-white"
-                            value={openChallenge}
-                            onChange={(e) => setOpenChallenge(e.target.value)}
-                        ></textarea>
-                    </div>
-                </div>
+    <div className="grid lg:grid-cols-2 gap-12 items-start mt-12">
+      {/* lado esquerdo */}
+      <div>
+        <p className="text-black mb-8">
+          Classifique os desafios abaixo em ordem de importância para sua instituição (1 = mais importante).
+        </p>
+        <div className="space-y-4">
+          {challenges.map(challenge => (
+            <div key={challenge.id} className="flex justify-between items-center bg-light-bg p-4 rounded-xl">
+              <p className="font-medium text-text-main pr-4">{challenge.text}</p>
+              <select
+                name={`ranking_${challenge.id}`}
+                value={rankings[challenge.id]}
+                onChange={handleRankingChange}
+                className="p-2 rounded-lg border-2 border-accent-blue font-bold cursor-pointer text-text-main bg-white"
+                required
+              >
+                <option value="">Prioridade</option>
+                {[1, 2, 3].map(num => (
+                  <option
+                    key={num}
+                    value={num}
+                    disabled={selectedValues.includes(String(num)) && rankings[challenge.id] !== String(num)}
+                  >
+                    {num}
+                  </option>
+                ))}
+              </select>
             </div>
-        </section>
+          ))}
+        </div>
+      </div>
+
+      {/* lado direito */}
+      <div className="bg-light-bg rounded-2xl p-8 text-center shadow-sm">
+        <Map className="w-20 h-20 text-secondary mx-auto mb-6" strokeWidth={1.5} />
+        <div className="text-left">
+          <label htmlFor="open-challenge" className="block font-semibold mb-2 text-text-main">
+            Quais são os maiores desafios do seu contraturno hoje?
+          </label>
+          <textarea
+            id="open-challenge"
+            name="desafio_aberto"
+            placeholder="Descreva aqui..."
+            className="w-full min-h-[120px] p-4 rounded-xl border-2 border-accent-blue font-inter text-base resize-vertical focus:ring-2 focus:ring-primary focus:outline-none bg-white"
+            value={openChallenge}
+            onChange={(e) => setOpenChallenge(e.target.value)}
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     );
 };
 
@@ -705,31 +733,49 @@ const WayOfDoingSection: React.FC = () => {
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
     
     return (
-        <section ref={sectionRef} className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(isVisible)}`}>
-            <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">Nosso jeito de fazer</h2>
+        <section
+            ref={sectionRef}
+            className={`w-full py-24 px-4 sm:px-8 bg-cover bg-center relative ${getFadeInClass(isVisible)}`}
+            style={{
+                backgroundImage: `url('/imagensFundo/img_crianca_preto_branco.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }}
+        >
+            {/* overlay branco semi-transparente */}
+            <div className="absolute inset-0 bg-white/70"></div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white p-8 rounded-2xl shadow-sm">
-                    <h4 className="text-primary font-lora text-2xl mb-1">Aula como experiência</h4>
-                    <p className="text-gray-500 italic mb-6">Por que eu quero viver isso?</p>
-                    <h4 className="text-primary font-lora text-2xl mb-1">Aprendizado por Projeto</h4>
-                    <p className="text-gray-500 italic">Onde eu quero chegar?</p>
-                </div>
-                <div className="bg-white p-8 rounded-2xl shadow-sm">
-                    <h4 className="text-primary font-lora text-2xl mb-4">Rotina estruturante</h4>
-                    <ul className="space-y-3">
-                        {routineItems.map(item => (
-                            <li key={item} className="flex items-center gap-3">
-                                <CheckCircle className="w-5 h-5 text-secondary" />
-                                <span className="font-medium">{item}</span>
-                            </li>
-                        ))}
-                    </ul>
+            {/* conteúdo centralizado */}
+            <div className="relative container mx-auto max-w-5xl">
+                <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">
+                    Nosso jeito de fazer
+                </h2>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-white p-8 rounded-2xl shadow-sm">
+                        <h4 className="text-primary font-lora text-2xl mb-1">Aula como experiência</h4>
+                        <p className="text-gray-500 italic mb-6">Por que eu quero viver isso?</p>
+                        <h4 className="text-primary font-lora text-2xl mb-1">Aprendizado por Projeto</h4>
+                        <p className="text-gray-500 italic">Onde eu quero chegar?</p>
+                    </div>
+                    <div className="bg-white p-8 rounded-2xl shadow-sm">
+                        <h4 className="text-primary font-lora text-2xl mb-4">Rotina estruturante</h4>
+                        <ul className="space-y-3">
+                            {routineItems.map(item => (
+                                <li key={item} className="flex items-center gap-3">
+                                    <CheckCircle className="w-5 h-5 text-secondary" />
+                                    <span className="font-medium">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     );
 };
+
 
 const portfolioData: PortfolioItem[] = [
     { title: 'Marcenaria', folder: 'marcenaria', images: ['IMG_3203.png', 'IMG_1809.jpeg', 'IMG_1810.jpeg', 'IMG_1835.jpeg', 'IMG_1836.jpeg', 'IMG_1837.jpeg'], tooltip: null },
@@ -819,7 +865,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
                 {/* Card 1: Select All */}
                 <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
                     <div className="bg-gray-100 p-6 flex-grow flex items-center justify-center text-center">
-                        <p className="text-lg font-semibold text-gray-700">
+                        <p className="text-center text-lg text-black max-w-2xl mx-auto mb-12">
                             Selecione as experiências que melhor compõem com o projeto pedagógico da sua escola.
                         </p>
                     </div>
@@ -1131,30 +1177,49 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({ selectedBenefits, onT
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
     
     return (
-        <section ref={sectionRef} className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(isVisible)}`}>
-            <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">Quais destes benefícios mais importam para sua escola?</h2>
-            <p className="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12">Selecione as opções que representam maior valor para sua instituição.</p>
+        <section
+            ref={sectionRef}
+            className={`w-full py-24 px-4 sm:px-8 bg-cover bg-center relative ${getFadeInClass(isVisible)}`}
+            style={{
+                backgroundImage: `url('/imagensFundo/img_caracol.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }}
+        >
+            {/* overlay para legibilidade */}
+            <div className="absolute inset-0 bg-white/70"></div>
 
-            <div className="flex flex-wrap justify-center gap-4">
-                {benefits.map(benefit => (
-                    <div key={benefit.id} className="benefit-tag">
-                        <input 
-                            type="checkbox" 
-                            id={benefit.id} 
-                            name="beneficios" 
-                            value={benefit.value} 
-                            className="peer hidden" 
-                            checked={!!selectedBenefits[benefit.id]}
-                            onChange={() => onToggleBenefit(benefit.id)}
-                        />
-                        <label 
-                            htmlFor={benefit.id} 
-                            className="flex items-center justify-center min-w-[180px] h-14 bg-accent-blue text-text-main px-6 py-3 rounded-full font-semibold transition-all duration-300 cursor-pointer text-center hover:bg-opacity-80 peer-checked:bg-secondary peer-checked:text-white peer-checked:scale-105 peer-checked:shadow-lg"
-                        >
-                            {benefit.label}
-                        </label>
-                    </div>
-                ))}
+            {/* conteúdo centralizado */}
+            <div className="relative container mx-auto max-w-5xl">
+                <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
+                    Quais destes benefícios mais importam para sua escola?
+                </h2>
+                <p className="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+                    Selecione as opções que representam maior valor para sua instituição.
+                </p>
+
+                <div className="flex flex-wrap justify-center gap-4">
+                    {benefits.map(benefit => (
+                        <div key={benefit.id} className="benefit-tag">
+                            <input 
+                                type="checkbox" 
+                                id={benefit.id} 
+                                name="beneficios" 
+                                value={benefit.value} 
+                                className="peer hidden" 
+                                checked={!!selectedBenefits[benefit.id]}
+                                onChange={() => onToggleBenefit(benefit.id)}
+                            />
+                            <label 
+                                htmlFor={benefit.id} 
+                                className="flex items-center justify-center min-w-[180px] h-14 bg-accent-blue text-text-main px-6 py-3 rounded-full font-semibold transition-all duration-300 cursor-pointer text-center hover:bg-opacity-80 peer-checked:bg-secondary peer-checked:text-white peer-checked:scale-105 peer-checked:shadow-lg"
+                            >
+                                {benefit.label}
+                            </label>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );
