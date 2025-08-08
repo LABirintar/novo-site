@@ -490,7 +490,15 @@ const Hero: React.FC = () => {
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
 
     return (
-        <header className="relative h-screen flex flex-col items-center justify-center text-center p-4 pt-24 bg-gradient-to-br from-accent-blue to-accent-lavender overflow-hidden">
+        <header
+            className="relative h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden"
+            style={{
+                backgroundImage: `url(./imagensFundo/img_inicial.jpg)`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 30%',
+            }}
+            >
+            <div className="absolute inset-0 bg-white/70"></div>
             <img 
                 ref={logoRef}
                 src="logoslabirintar/Labirintar_RGB.png" 
@@ -500,14 +508,14 @@ const Hero: React.FC = () => {
             />
             <h1 
                 ref={titleRef}
-                className={`font-lora text-white text-shadow text-[clamp(2.8rem,6vw,4.5rem)] leading-tight shadow-black/20 ${getFadeInClass(isTitleVisible)}`}
+                className={`font-lora text-black text-shadow text-[clamp(2.8rem,6vw,4.5rem)] leading-tight shadow-black/20 ${getFadeInClass(isTitleVisible)}`}
                 style={{ transitionDelay: '300ms' }}
             >
                 Educar é ocupar o tempo com sentido.
             </h1>
             <p 
                 ref={subtitleRef}
-                className={`text-xl text-white font-light tracking-wider mt-4 text-shadow shadow-black/15 ${getFadeInClass(isSubtitleVisible)}`}
+                className={`text-2xl text-black font-light tracking-wider mt-4 text-shadow shadow-black/15 ${getFadeInClass(isSubtitleVisible)}`}
                 style={{ transitionDelay: '500ms' }}
             >
                 E sentido se constrói em rede.
