@@ -138,11 +138,11 @@ const FlipCard: React.FC<FlipCardProps> = ({ icon, frontTitle, backTitle, backTe
                 {/* Front */}
                 <div className="absolute inset-0 bg-white rounded-2xl [backface-visibility:hidden] flex flex-col items-center justify-center text-center p-8">
                     <div className="mb-4">{icon}</div>
-                    <h4 className="font-lora text-2xl text-text-main">{frontTitle}</h4>
+                    <h4 className="font-raleway text-2xl text-text-main">{frontTitle}</h4>
                 </div>
                 {/* Back */}
                 <div className="absolute inset-0 bg-accent-blue rounded-2xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center text-center p-8">
-                    <h4 className="font-lora text-xl mb-2 text-text-main">{backTitle}</h4>
+                    <h4 className="font-raleway text-xl mb-2 text-text-main">{backTitle}</h4>
                     <p className="text-base text-gray-800">{backText}</p>
                 </div>
             </div>
@@ -391,7 +391,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, onImageClick, isChe
             </div>
             <div className="p-4">
                 <div className="flex justify-between items-center gap-2">
-                    <h4 className="font-lora text-xl font-semibold">{item.title}</h4>
+                    <h4 className="font-raleway text-xl font-semibold">{item.title}</h4>
                     <input 
                         type="checkbox" 
                         name="modalidades_selecionadas" 
@@ -508,7 +508,7 @@ const Hero: React.FC = () => {
             />
             <h1
     ref={titleRef}
-    className={`font-lora text-[clamp(2.8rem,6vw,4.5rem)] leading-tight ${getFadeInClass(isTitleVisible)}`}
+    className={`font-raleway text-[clamp(2.8rem,6vw,4.5rem)] leading-tight ${getFadeInClass(isTitleVisible)}`}
     style={{
         transitionDelay: '300ms',
         color: '#000000ff'
@@ -519,7 +519,7 @@ const Hero: React.FC = () => {
 
 <p
     ref={subtitleRef}
-    className={`text-2xl font-light tracking-wider mt-4 ${getFadeInClass(isSubtitleVisible)}`}
+    className={`font-raleway text-3xl font-light tracking-wider mt-4 ${getFadeInClass(isSubtitleVisible)}`}
     style={{
         transitionDelay: '500ms',
         color: '#000000ff'
@@ -557,21 +557,36 @@ const VisionSection: React.FC = () => {
         `transition-opacity duration-1000 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`;
 
     return (
-        <section ref={sectionRef} className={`py-24 px-4 sm:px-8 ${getFadeInClass(isVisible)}`}>
-            <div className="container mx-auto max-w-5xl">
-                <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">A escola em tempo integral precisa mais do que tempo: ela precisa de experiência com sentido.</h2>
-                <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">A LABirintar é o ecossistema que torna isso possível.</p>
-                
-                <div className="flex overflow-x-auto space-x-8 pb-8 scrollbar-thin scrollbar-thumb-accent-blue scrollbar-track-transparent snap-x snap-mandatory">
-                    {visionCards.map((card, index) => (
-                        <div key={index} className="flex-shrink-0 w-80 bg-white rounded-2xl p-8 shadow-md border-t-4 border-primary snap-start">
-                            <h4 className="font-lora text-xl text-primary mb-4">{card.title}</h4>
-                            <p className="text-base leading-relaxed text-gray-700">{card.text}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+      <section
+        ref={sectionRef}
+        className={`py-24 px-4 sm:px-8 bg-light-bg ${getFadeInClass(isVisible)}`}
+      >
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
+            A escola em tempo integral precisa mais do que tempo: ela precisa de
+            experiência com sentido.
+          </h2>
+          <p className="text-center text-2xl text-gray-600 max-w-6xl mx-auto mb-16">
+            A LABirintar é o ecossistema que torna isso possível.
+          </p>
+
+          <div className="flex overflow-x-auto space-x-8 pb-8 scrollbar-thin scrollbar-thumb-accent-blue scrollbar-track-transparent snap-x snap-mandatory">
+            {visionCards.map((card, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-80 bg-white rounded-2xl p-8 shadow-md border-t-4 border-primary snap-start"
+              >
+                <h4 className="font-raleway text-xl text-primary mb-4">
+                  {card.title}
+                </h4>
+                <p className="text-base leading-relaxed text-gray-700">
+                  {card.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     );
 };
 
@@ -611,7 +626,7 @@ const ProblemSection: React.FC<ProblemSectionProps> = ({ rankings, setRankings, 
   <div className="absolute inset-0 bg-white/70"></div>
 
   <div className="relative container mx-auto max-w-5xl">
-    <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
+    <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
       A Cartografia do Desafio
     </h2>
 
@@ -706,18 +721,26 @@ const SolutionSection: React.FC = () => {
         `transition-opacity duration-1000 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`;
 
     return (
-        <section ref={sectionRef} className={`bg-gradient-to-br from-accent-lavender to-white py-24 ${getFadeInClass(isVisible)}`}>
-            <div className="container mx-auto max-w-5xl px-4 sm:px-8">
-                <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">Nossa Solução: Um Ecossistema Integrado</h2>
-                <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">Conectamos quatro pilares para criar uma experiência de contraturno única, viva e pulsante.</p>
-                
-                <div className="grid md:grid-cols-2 gap-8 [perspective:1000px]">
-                    {solutionCards.map((card, index) => (
-                        <FlipCard key={index} {...card} />
-                    ))}
-                </div>
-            </div>
-        </section>
+      <section
+        ref={sectionRef}
+        className={`bg-eggshell py-24 ${getFadeInClass(isVisible)}`}
+      >
+        <div className="container mx-auto max-w-5xl px-4 sm:px-8">
+          <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
+            Nossa Solução: Um Ecossistema Integrado
+          </h2>
+          <p className="text-center text-2xl text-gray-600 max-w-3xl mx-auto mb-16">
+            Conectamos quatro pilares para criar uma experiência de contraturno
+            única, viva e pulsante.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 [perspective:1000px]">
+            {solutionCards.map((card, index) => (
+              <FlipCard key={index} {...card} />
+            ))}
+          </div>
+        </div>
+      </section>
     );
 };
 
@@ -748,19 +771,19 @@ const WayOfDoingSection: React.FC = () => {
 
             {/* conteúdo centralizado */}
             <div className="relative container mx-auto max-w-5xl">
-                <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">
+                <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">
                     Nosso jeito de fazer
                 </h2>
 
                 <div className="grid md:grid-cols-2 gap-8">
                     <div className="bg-white p-8 rounded-2xl shadow-sm">
-                        <h4 className="text-primary font-lora text-2xl mb-1">Aula como experiência</h4>
+                        <h4 className="text-primary font-raleway text-2xl mb-1">Aula como experiência</h4>
                         <p className="text-gray-500 italic mb-6">Por que eu quero viver isso?</p>
-                        <h4 className="text-primary font-lora text-2xl mb-1">Aprendizado por Projeto</h4>
+                        <h4 className="text-primary font-raleway text-2xl mb-1">Aprendizado por Projeto</h4>
                         <p className="text-gray-500 italic">Onde eu quero chegar?</p>
                     </div>
                     <div className="bg-white p-8 rounded-2xl shadow-sm">
-                        <h4 className="text-primary font-lora text-2xl mb-4">Rotina estruturante</h4>
+                        <h4 className="text-primary font-raleway text-2xl mb-4">Rotina estruturante</h4>
                         <ul className="space-y-3">
                             {routineItems.map(item => (
                                 <li key={item} className="flex items-center gap-3">
@@ -778,16 +801,233 @@ const WayOfDoingSection: React.FC = () => {
 
 
 const portfolioData: PortfolioItem[] = [
-    { title: 'Marcenaria', folder: 'marcenaria', images: ['IMG_3203.png', 'IMG_1809.jpeg', 'IMG_1810.jpeg', 'IMG_1835.jpeg', 'IMG_1836.jpeg', 'IMG_1837.jpeg'], tooltip: null },
-    { title: 'Circo', folder: 'circo', images: ['IMG_3200.png', 'IMG_1813.jpeg', 'IMG_1839.jpeg', 'IMG_1840.jpeg', 'IMG_1841.jpeg', 'IMG_1842.jpeg', 'IMG_1843.jpeg', 'IMG_1844.jpeg', 'bc110c9c-a8e1-452a-94b7-5a0c6ce0d3b8.jpeg', 'e3b3b2a3-a15e-4e24-be2f-b529a24e3a60.jpeg', 'f80d9019-6851-4b2f-af19-5a8dd0edcaf7.jpeg'], tooltip: null },
-    { title: 'Fazeres Manuais', folder: 'fazeresmanuais', images: ['IMG_3198.png', '82d08da1-ed2c-4bfd-908a-4b6e75999604.jpeg', 'IMG_1822.jpeg', 'IMG_1846.jpeg', 'IMG_1847.jpeg', 'IMG_1848.jpeg', 'IMG_1849.jpeg', 'IMG_1850.jpeg', 'IMG_1851.jpeg', 'IMG_1852.jpeg', 'IMG_1853.jpeg'], tooltip: 'Horta, Panificação, Cozinha Experimental' },
-    { title: 'Tecnologia', folder: 'tecnologia', images: ['IMG_3199.png', 'IMG_1807.jpeg', 'IMG_1808.jpeg', 'IMG_1894.jpeg', 'IMG_1895.jpeg', 'IMG_1896.jpeg', 'IMG_1897.jpeg', 'IMG_1898.jpeg', 'IMG_1899.jpeg', 'IMG_1900.jpeg', 'IMG_1901.jpeg', 'IMG_1902.jpeg', 'IMG_1903.jpeg', 'IMG_1904.jpeg', 'IMG_1905.jpeg', 'IMG_1906.jpeg'], tooltip: 'Programação de Jogos, Robótica, Criação de Jogos de Tabuleiro e RPG' },
-    { title: 'CidadeVamos', folder: 'cidadevamos', images: ['IMG_3201.png', 'IMG_1948.jpeg', 'IMG_1912.jpeg', 'IMG_1913.jpeg', 'IMG_1914.jpeg', 'IMG_1915.jpeg', 'IMG_1916.jpeg', 'IMG_1917.jpeg', 'IMG_1918.jpeg', 'IMG_1919.jpeg', 'IMG_1920.jpeg', 'IMG_1921.jpeg', 'IMG_1922.jpeg', 'IMG_1923.jpeg', 'IMG_1924.jpeg', 'IMG_1925.jpeg', 'IMG_1926.jpeg'], tooltip: null },
-    { title: 'Infância Sem Excesso', folder: 'infanciasemexcesso', images: ['IMG_3202.png', 'IMG_1944.jpeg', 'IMG_1946.jpeg', 'IMG_1930.jpeg', 'IMG_1931.jpeg', 'IMG_1932.jpeg', 'IMG_1933.jpeg', 'IMG_1934.jpeg', 'IMG_1937.jpeg', 'IMG_1938.jpeg', 'IMG_1939.jpeg', 'IMG_1940.jpeg', 'IMG_1941.jpeg', 'IMG_1942.jpeg', 'IMG_1936.jpeg', 'IMG_1945.jpeg', 'IMG_1927.jpeg', 'IMG_1935.jpeg', 'IMG_1928.jpeg', 'IMG_1929.jpeg'], tooltip: null },
-    { title: 'Prática Esportiva', folder: 'praticaesportiva', images: ['IMG_3197.png', 'IMG_1907.jpeg', 'IMG_1908.jpeg', 'IMG_1910.jpeg', 'IMG_1911.jpeg', 'IMG_1969.jpeg', 'IMG_1970.jpeg', 'IMG_1971.jpeg', 'IMG_1972.jpeg', 'IMG_1973.jpeg', 'IMG_1974.jpeg', 'IMG_1975.jpeg', 'IMG_1976.jpeg', 'IMG_1977.jpeg', 'IMG_1978.jpeg'], tooltip: null },
-    { title: 'Brincar Livre', folder: 'brincarlivre', images: ['IMG_3204.png', 'IMG_1801.jpeg', 'IMG_1804.jpeg', 'IMG_1811.jpeg', 'IMG_1830.jpeg', 'IMG_1831.jpeg', 'IMG_1832.jpeg', 'IMG_1979.jpeg', 'IMG_1980.jpeg', 'IMG_1981.jpeg', 'IMG_1982.jpeg', 'IMG_1983.jpeg', 'IMG_1984.jpeg', 'IMG_1985.jpeg', 'IMG_1986.jpeg', 'IMG_1987.jpeg', 'IMG_1988.jpeg'], tooltip: null },
-    { title: 'Mindfulness', folder: 'mindfulness', images: ['IMG_3196.png', '4f98ae78-9869-4179-95df-93919ee1616f.jpeg', '87b6d7f1-94a9-4b8e-adfd-5b0bda9ff2e0.jpeg', 'IMG_1812.jpeg', 'IMG_1854.jpeg', 'IMG_1855.jpeg', 'IMG_1857.jpeg'], tooltip: null },
-    { title: 'Ateliês', folder: 'atelie', images: ['IMG_3204.png', 'IMG_1820.jpeg', 'IMG_1861.jpeg', 'IMG_1862.jpeg', 'IMG_1863.jpeg', 'IMG_1865.jpeg', 'IMG_1866.jpeg', 'IMG_1867.jpeg', 'IMG_1868.jpeg', 'IMG_1869.jpeg', 'IMG_1870.jpeg', 'IMG_1871.jpeg', 'IMG_1872.jpeg', 'CrioLivros1.jpg', 'CrioLivros2.jpg', 'CrioLivros3.jpg', 'CrioLivros4.jpg', 'CrioLivros5.jpg','IMG_1873.jpeg', 'IMG_1874.jpeg', 'IMG_1875.jpeg', 'IMG_1881.jpeg', 'IMG_1883.jpeg', 'IMG_1884.jpeg', 'IMG_1885.jpeg', 'IMG_1886.jpeg', 'IMG_1887.jpeg', 'IMG_1888.jpeg', 'IMG_1890.jpeg', 'IMG_1891.jpeg', 'IMG_1962.jpeg', 'IMG_1963.jpeg', 'IMG_1964.jpeg', 'IMG_1965.jpeg', 'IMG_1966.jpeg', 'IMG_3195.jpeg', 'fa97fcb7-9657-435d-8e72-e67d85f09b8b.jpeg'], tooltip: 'Clube de Leitura, CrioLivros, Artes Visuais, Artes Cênicas, Improvisação, Dança e Música' },
+  {
+    title: "Marcenaria",
+    folder: "marcenaria",
+    images: [
+      "IMG_3203.png",
+      "IMG_1809.jpeg",
+      "IMG_1810.jpeg",
+      "IMG_1835.jpeg",
+      "IMG_1836.jpeg",
+      "IMG_1837.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Circo",
+    folder: "circo",
+    images: [
+      "IMG_3200.png",
+      "IMG_1813.jpeg",
+      "IMG_1839.jpeg",
+      "IMG_1840.jpeg",
+      "IMG_1841.jpeg",
+      "IMG_1842.jpeg",
+      "IMG_1843.jpeg",
+      "IMG_1844.jpeg",
+      "bc110c9c-a8e1-452a-94b7-5a0c6ce0d3b8.jpeg",
+      "e3b3b2a3-a15e-4e24-be2f-b529a24e3a60.jpeg",
+      "f80d9019-6851-4b2f-af19-5a8dd0edcaf7.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Fazeres Manuais",
+    folder: "fazeresmanuais",
+    images: [
+      "IMG_3198.png",
+      "82d08da1-ed2c-4bfd-908a-4b6e75999604.jpeg",
+      "IMG_1822.jpeg",
+      "IMG_1846.jpeg",
+      "IMG_1847.jpeg",
+      "IMG_1848.jpeg",
+      "IMG_1849.jpeg",
+      "IMG_1850.jpeg",
+      "IMG_1851.jpeg",
+      "IMG_1852.jpeg",
+      "IMG_1853.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Tecnologia",
+    folder: "tecnologia",
+    images: [
+      "IMG_3199.png",
+      "IMG_1807.jpeg",
+      "IMG_1808.jpeg",
+      "IMG_1894.jpeg",
+      "IMG_1895.jpeg",
+      "IMG_1896.jpeg",
+      "IMG_1897.jpeg",
+      "IMG_1898.jpeg",
+      "IMG_1899.jpeg",
+      "IMG_1900.jpeg",
+      "IMG_1901.jpeg",
+      "IMG_1902.jpeg",
+      "IMG_1903.jpeg",
+      "IMG_1904.jpeg",
+      "IMG_1905.jpeg",
+      "IMG_1906.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "CidadeVamos",
+    folder: "cidadevamos",
+    images: [
+      "IMG_3201.png",
+      "IMG_1948.jpeg",
+      "IMG_1912.jpeg",
+      "IMG_1913.jpeg",
+      "IMG_1914.jpeg",
+      "IMG_1915.jpeg",
+      "IMG_1916.jpeg",
+      "IMG_1917.jpeg",
+      "IMG_1918.jpeg",
+      "IMG_1919.jpeg",
+      "IMG_1920.jpeg",
+      "IMG_1921.jpeg",
+      "IMG_1922.jpeg",
+      "IMG_1923.jpeg",
+      "IMG_1924.jpeg",
+      "IMG_1925.jpeg",
+      "IMG_1926.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Infância Sem Excesso",
+    folder: "infanciasemexcesso",
+    images: [
+      "IMG_3202.png",
+      "IMG_1944.jpeg",
+      "IMG_1946.jpeg",
+      "IMG_1930.jpeg",
+      "IMG_1931.jpeg",
+      "IMG_1932.jpeg",
+      "IMG_1933.jpeg",
+      "IMG_1934.jpeg",
+      "IMG_1937.jpeg",
+      "IMG_1938.jpeg",
+      "IMG_1939.jpeg",
+      "IMG_1940.jpeg",
+      "IMG_1941.jpeg",
+      "IMG_1942.jpeg",
+      "IMG_1936.jpeg",
+      "IMG_1945.jpeg",
+      "IMG_1927.jpeg",
+      "IMG_1935.jpeg",
+      "IMG_1928.jpeg",
+      "IMG_1929.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Prática Esportiva",
+    folder: "praticaesportiva",
+    images: [
+      "IMG_3197.png",
+      "IMG_1907.jpeg",
+      "IMG_1908.jpeg",
+      "IMG_1910.jpeg",
+      "IMG_1911.jpeg",
+      "IMG_1969.jpeg",
+      "IMG_1970.jpeg",
+      "IMG_1971.jpeg",
+      "IMG_1972.jpeg",
+      "IMG_1973.jpeg",
+      "IMG_1974.jpeg",
+      "IMG_1975.jpeg",
+      "IMG_1976.jpeg",
+      "IMG_1977.jpeg",
+      "IMG_1978.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Brincar Livre",
+    folder: "brincarlivre",
+    images: [
+      "IMG_3204.png",
+      "IMG_1801.jpeg",
+      "IMG_1804.jpeg",
+      "IMG_1811.jpeg",
+      "IMG_1830.jpeg",
+      "IMG_1831.jpeg",
+      "IMG_1832.jpeg",
+      "IMG_1979.jpeg",
+      "IMG_1980.jpeg",
+      "IMG_1981.jpeg",
+      "IMG_1982.jpeg",
+      "IMG_1983.jpeg",
+      "IMG_1984.jpeg",
+      "IMG_1985.jpeg",
+      "IMG_1986.jpeg",
+      "IMG_1987.jpeg",
+      "IMG_1988.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Mindfulness",
+    folder: "mindfulness",
+    images: [
+      "IMG_3196.png",
+      "4f98ae78-9869-4179-95df-93919ee1616f.jpeg",
+      "87b6d7f1-94a9-4b8e-adfd-5b0bda9ff2e0.jpeg",
+      "IMG_1812.jpeg",
+      "IMG_1854.jpeg",
+      "IMG_1855.jpeg",
+      "IMG_1857.jpeg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Ateliês",
+    folder: "atelie",
+    images: [
+      "IMG_3204.png",
+      "IMG_1820.jpeg",
+      "IMG_1861.jpeg",
+      "IMG_1862.jpeg",
+      "IMG_1863.jpeg",
+      "IMG_1865.jpeg",
+      "IMG_1866.jpeg",
+      "IMG_1867.jpeg",
+      "IMG_1868.jpeg",
+      "IMG_1869.jpeg",
+      "IMG_1870.jpeg",
+      "IMG_1871.jpeg",
+      "IMG_1872.jpeg",
+      "CrioLivros1.jpg",
+      "CrioLivros2.jpg",
+      "CrioLivros3.jpg",
+      "CrioLivros4.jpg",
+      "CrioLivros5.jpg",
+      "IMG_1873.jpeg",
+      "IMG_1874.jpeg",
+      "IMG_1875.jpeg",
+      "IMG_1881.jpeg",
+      "IMG_1883.jpeg",
+      "IMG_1884.jpeg",
+      "IMG_1885.jpeg",
+      "IMG_1886.jpeg",
+      "IMG_1887.jpeg",
+      "IMG_1888.jpeg",
+      "IMG_1890.jpeg",
+      "IMG_1891.jpeg",
+      "IMG_1962.jpeg",
+      "IMG_1963.jpeg",
+      "IMG_1964.jpeg",
+      "IMG_1965.jpeg",
+      "IMG_1966.jpeg",
+      "IMG_3195.jpeg",
+      "fa97fcb7-9657-435d-8e72-e67d85f09b8b.jpeg",
+    ],
+    tooltip: null,
+  },
 ];
 
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onToggleItem, onToggleSelectAll, onDeselectAll, portfolioItemTitles }) => {
@@ -858,73 +1098,89 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
     }, [lightboxState]);
 
     return (
-        <section ref={sectionRef} className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(isVisible)}`}>
-            <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">Portfólio de Experiências</h2>
+      <section
+        ref={sectionRef}
+        className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(
+          isVisible
+        )}`}
+      >
+        <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">
+          Portfólio de Experiências
+        </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Card 1: Select All */}
-                <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
-                    <div className="bg-gray-100 p-6 flex-grow flex items-center justify-center text-center">
-                        <p className="text-center text-lg text-black max-w-2xl mx-auto mb-12">
-                            Selecione as experiências que melhor compõem com o projeto pedagógico da sua escola.
-                        </p>
-                    </div>
-                    <div className="p-4 border-t">
-                        <div className="flex justify-between items-center gap-2">
-                            <label htmlFor="select-all" className="font-lora text-xl font-semibold cursor-pointer flex-grow text-text-main">
-                                Selecionar todas
-                            </label>
-                            <input 
-                                ref={selectAllCheckboxRef}
-                                type="checkbox" 
-                                id="select-all"
-                                className="w-5 h-5 accent-primary cursor-pointer"
-                                checked={allSelected}
-                                onChange={onToggleSelectAll}
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                {portfolioData.map((item) => (
-                   <PortfolioCard 
-                        key={item.title} 
-                        item={item}
-                        onImageClick={handleOpenLightbox}
-                        isChecked={!!selectedItems[item.title]}
-                        onToggle={onToggleItem}
-                    />
-                ))}
-                
-                {/* Card 3: Info & Deselect All */}
-                <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
-                    <div className="bg-gray-100 p-6 flex-grow flex items-center justify-center text-center">
-                         <p className="text-lg font-semibold text-gray-700">
-                            Não sabe quais experiências escolher, copie abaixo o link do Diagnóstico e envie-o para mapear os interesses do público.
-                        </p>
-                    </div>
-                    <div className="p-4 border-t">
-                        <div className="flex justify-between items-center gap-2">
-                            <label htmlFor="deselect-all" className="font-lora text-xl font-semibold cursor-pointer flex-grow text-text-main">
-                                Desmarcar todas
-                            </label>
-                            <input 
-                                type="checkbox" 
-                                id="deselect-all"
-                                className="w-5 h-5 accent-primary cursor-pointer disabled:cursor-not-allowed"
-                                checked={numSelected > 0}
-                                onChange={onDeselectAll}
-                                disabled={numSelected === 0}
-                            />
-                        </div>
-                    </div>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Card 1: Select All */}
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
+            <div className="bg-gray-100 p-6 flex-grow flex items-center justify-center text-center">
+              <p className="text-center text-lg text-black max-w-2xl mx-auto mb-12">
+                Selecione as experiências que melhor compõem com o projeto
+                pedagógico da sua escola.
+              </p>
             </div>
+            <div className="p-4 border-t">
+              <div className="flex justify-between items-center gap-2">
+                <label
+                  htmlFor="select-all"
+                  className="font-raleway text-xl font-semibold cursor-pointer flex-grow text-text-main"
+                >
+                  Selecionar todas
+                </label>
+                <input
+                  ref={selectAllCheckboxRef}
+                  type="checkbox"
+                  id="select-all"
+                  className="w-5 h-5 accent-primary cursor-pointer"
+                  checked={allSelected}
+                  onChange={onToggleSelectAll}
+                />
+              </div>
+            </div>
+          </div>
 
-            {/* Pesquisa Diagnostica
+          {portfolioData.map((item) => (
+            <PortfolioCard
+              key={item.title}
+              item={item}
+              onImageClick={handleOpenLightbox}
+              isChecked={!!selectedItems[item.title]}
+              onToggle={onToggleItem}
+            />
+          ))}
+
+          {/* Card 3: Info & Deselect All */}
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
+            <div className="bg-gray-100 p-6 flex-grow flex items-center justify-center text-center">
+              <p className="text-lg font-semibold text-gray-700">
+                Não sabe quais experiências escolher, entre em contato, pois
+                oferecemos um formulário diagnóstico para mapear os interesses
+                dos alunos.
+              </p>
+            </div>
+            <div className="p-4 border-t">
+              <div className="flex justify-between items-center gap-2">
+                <label
+                  htmlFor="deselect-all"
+                  className="font-raleway text-xl font-semibold cursor-pointer flex-grow text-text-main"
+                >
+                  Desmarcar todas
+                </label>
+                <input
+                  type="checkbox"
+                  id="deselect-all"
+                  className="w-5 h-5 accent-primary cursor-pointer disabled:cursor-not-allowed"
+                  checked={numSelected > 0}
+                  onChange={onDeselectAll}
+                  disabled={numSelected === 0}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Pesquisa Diagnostica
             <div className="mt-24 bg-accent-blue p-8 sm:p-12 rounded-2xl grid md:grid-cols-2 gap-8 items-center">
                 <div className="text-center md:text-left">
-                    <h4 className="font-lora text-2xl mb-4">Não tem certeza de quais experiências escolher?</h4>
+                    <h4 className="font-raleway text-2xl mb-4">Não tem certeza de quais experiências escolher?</h4>
                     <p className="max-w-xl mx-auto md:mx-0 text-gray-700 mb-8">
                         Use nosso formulário de diagnóstico para pesquisar os interesses de alunos e famílias. Copie o link e compartilhe com sua equipe pedagógica.
                     </p>
@@ -955,13 +1211,13 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onTo
                     onPrev={handlePrevLightboxImage}
                 />
             )}*/}
-        </section>
+      </section>
     );
 };
 
 const PartnershipCard = ({ title, description, border, details, note, activityDuration }: any) => (
     <div className={`bg-white p-8 sm:p-10 rounded-2xl shadow-md border-t-4 ${border} transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg h-full`}>
-        <h4 className="font-lora text-3xl mb-4">{title}</h4>
+        <h4 className="font-raleway text-3xl mb-4">{title}</h4>
         <p className="text-lg text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: description }}></p>
         <p className="font-bold text-primary mb-6">{activityDuration}</p>
         <div className="text-lg font-medium my-6 pl-4 border-l-2 border-gray-200 space-y-2">
@@ -981,8 +1237,8 @@ const PartnershipSection: React.FC = () => {
     
     return (
         <section ref={sectionRef} className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(isVisible)}`}>
-            <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">Modelos de Parceria Flexíveis</h2>
-            <p className="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-16">Temos o modelo ideal para o momento e a estratégia da sua escola.</p>
+            <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">Modelos de Parceria Flexíveis</h2>
+            <p className="text-center text-2xl text-gray-600 max-w-2xl mx-auto mb-16">Temos o modelo ideal para o momento e a estratégia da sua escola.</p>
 
             <div className="grid lg:grid-cols-2 gap-12">
                 <PartnershipCard 
@@ -1053,7 +1309,7 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
         <div ref={sectionRef} className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(isVisible)}`}>
             <div className="bg-light-bg p-6 sm:p-8 lg:p-12 rounded-2xl">
                 <div className="mb-8">
-                    <h3 className="font-lora text-3xl text-text-main flex items-center">
+                    <h3 className="font-raleway text-3xl text-text-main flex items-center">
                         <BarChart2 className="w-8 h-8 mr-3 text-primary" />
                         Simule o seu Potencial de Ganho
                     </h3>
@@ -1113,7 +1369,7 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
                     <div id="results" className="mt-8 grid md:grid-cols-2 gap-6 text-left">
                         <div className="bg-white p-6 rounded-xl shadow-sm flex flex-col justify-between">
                             <div>
-                                <h4 className="font-lora text-xl mb-2">Ganho com Modelo 1 (Split)</h4>
+                                <h4 className="font-raleway text-xl mb-2">Ganho com Modelo 1 (Split)</h4>
                                 <p className="text-3xl font-bold text-primary">{formatCurrency(gainModel1)}</p>
                                 <p className="text-sm text-gray-500 italic mt-1">20% da receita total de {formatCurrency(totalRevenue)}</p>
                             </div>
@@ -1134,7 +1390,7 @@ const SimulatorSection: React.FC<SimulatorSectionProps> = ({
                         </div>
                         <div className="bg-white p-6 rounded-xl shadow-sm flex flex-col justify-between">
                            <div>
-                                <h4 className="font-lora text-xl mb-2">Ganho com Modelo 2 (Assinatura)</h4>
+                                <h4 className="font-raleway text-xl mb-2">Ganho com Modelo 2 (Assinatura)</h4>
                                 <p className="text-3xl font-bold text-primary">{formatCurrency(gainModel2)}</p>
                                 <p className="text-sm text-gray-500 italic mt-1">30% ({formatCurrency(totalRevenue * 0.4)}) - Assinatura ({formatCurrency(costModel2)})</p>
                            </div>
@@ -1192,10 +1448,10 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({ selectedBenefits, onT
 
             {/* conteúdo centralizado */}
             <div className="relative container mx-auto max-w-5xl">
-                <h2 className="font-lora text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
+                <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
                     Quais destes benefícios mais importam para sua escola?
                 </h2>
-                <p className="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+                <p className="text-center text-2xl text-gray-600 max-w-2xl mx-auto mb-12">
                     Selecione as opções que representam maior valor para sua instituição.
                 </p>
 
@@ -1235,23 +1491,31 @@ const Footer: React.FC<FooterProps> = ({ onOpenModal, isFormValid }) => {
     };
     
     return (
-        <footer className="bg-text-main text-white text-center py-20 px-4">
-            <div className="container mx-auto max-w-3xl">
-                <h2 className="font-lora text-4xl text-white mb-6">Escolha Caminhar Conosco</h2>
-                <p className="text-lg opacity-80 max-w-xl mx-auto mb-10">
-                    A LABirintar transforma o contraturno. Preencha seus dados e nossa equipe enviará uma proposta de orçamento.
-                </p>
-                <div className="flex justify-center">
-                    <button 
-                        type="button" 
-                        onClick={handleButtonClick}
-                        className={`inline-block py-4 px-10 rounded-full text-white font-bold text-lg bg-secondary transition-all transform shadow-md hover:shadow-lg ${isFormValid ? 'hover:bg-opacity-90 hover:-translate-y-1' : 'opacity-50 cursor-not-allowed'}`}
-                    >
-                        Receber Orçamento
-                    </button>
-                </div>
-            </div>
-        </footer>
+      <footer className="bg-text-main text-white text-center py-20 px-4">
+        <div className="container mx-auto max-w-3xl">
+          <h2 className="font-raleway text-4xl text-white mb-6">
+            Escolha Caminhar Conosco
+          </h2>
+          <p className="text-xl opacity-80 max-w-xl mx-auto mb-10">
+            A LABirintar transforma a Escola em Tempo Integral.
+            <br />
+            Preencha seus dados e nossa equipe enviará uma proposta.
+          </p>
+          <div className="flex justify-center">
+            <button
+              type="button"
+              onClick={handleButtonClick}
+              className={`inline-block py-4 px-10 rounded-full text-white font-bold text-lg bg-secondary transition-all transform shadow-md hover:shadow-lg ${
+                isFormValid
+                  ? "hover:bg-opacity-90 hover:-translate-y-1"
+                  : "opacity-50 cursor-not-allowed"
+              }`}
+            >
+              Receber Proposta
+            </button>
+          </div>
+        </div>
+      </footer>
     );
 };
 
@@ -1328,7 +1592,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, contactDat
                 className="bg-white p-8 rounded-2xl shadow-xl w-11/12 max-w-md m-4"
                 onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
             >
-                <h3 className="font-lora text-2xl mb-2">Informações de Contato</h3>
+                <h3 className="font-raleway text-2xl mb-2">Informações de Contato</h3>
                 <p className="text-gray-600 mb-6">Deixe seus dados para que nossa equipe possa retornar.</p>
                 
                 <form id="commercial-form-modal-part" onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
@@ -1553,7 +1817,7 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="overflow-x-hidden min-h-screen flex flex-col">
+        <div className="font-raleway overflow-x-hidden min-h-screen flex flex-col">
             <TopBar />
             <Hero />
             <main className="flex-1">
