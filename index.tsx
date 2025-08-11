@@ -756,46 +756,61 @@ const WayOfDoingSection: React.FC = () => {
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
     
     return (
-        <section
-            ref={sectionRef}
-            className={`w-full py-24 px-4 sm:px-8 bg-cover bg-center relative ${getFadeInClass(isVisible)}`}
-            style={{
-                backgroundImage: `url('/imagensFundo/img_crianca_preto_branco.jpg')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-            }}
-        >
-            {/* overlay branco semi-transparente */}
-            <div className="absolute inset-0 bg-white/70"></div>
+      <section
+        ref={sectionRef}
+        className={`w-full py-24 px-4 sm:px-8 bg-cover bg-center relative ${getFadeInClass(
+          isVisible
+        )}`}
+        style={{
+          backgroundImage: `url('/imagensFundo/img_crianca_preto_branco.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* overlay branco semi-transparente */}
+        <div className="absolute inset-0 bg-white/70"></div>
 
-            {/* conteúdo centralizado */}
-            <div className="relative container mx-auto max-w-5xl">
-                <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">
-                    Nosso jeito de fazer
-                </h2>
+        {/* conteúdo centralizado */}
+        <div className="relative container mx-auto max-w-5xl">
+          <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">
+            Nosso jeito de fazer
+          </h2>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div className="bg-white p-8 rounded-2xl shadow-sm">
-                        <h4 className="text-primary font-raleway text-2xl mb-1">Aula como experiência</h4>
-                        <p className="text-gray-500 italic mb-6">Por que eu quero viver isso?</p>
-                        <h4 className="text-primary font-raleway text-2xl mb-1">Aprendizado por Projeto</h4>
-                        <p className="text-gray-500 italic">Onde eu quero chegar?</p>
-                    </div>
-                    <div className="bg-white p-8 rounded-2xl shadow-sm">
-                        <h4 className="text-primary font-raleway text-2xl mb-4">Rotina estruturante</h4>
-                        <ul className="space-y-3">
-                            {routineItems.map(item => (
-                                <li key={item} className="flex items-center gap-3">
-                                    <CheckCircle className="w-5 h-5 text-secondary" />
-                                    <span className="font-medium">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h4 className="text-primary font-raleway text-2xl mb-1">
+                Aula como experiência
+              </h4>
+              <p className="text-gray-500 italic mb-6">
+                Por que eu quero viver isso?
+              </p>
+              <h4 className="text-primary font-raleway text-2xl mb-1">
+                Aprendizado por Projeto
+              </h4>
+              <p className="text-gray-500 italic">Onde eu quero chegar?</p>
+              <br />
+              <h4 className="text-primary font-raleway text-2xl mb-1">
+                Pesquisa etnográfica
+              </h4>
+              <p className="text-gray-500 italic">Que atitude de escuta quero cultivar para compreender a cultura vida da escola?</p>
             </div>
-        </section>
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h4 className="text-primary font-raleway text-2xl mb-4">
+                Rotina estruturante
+              </h4>
+              <ul className="space-y-3">
+                {routineItems.map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-secondary" />
+                    <span className="font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     );
 };
 
