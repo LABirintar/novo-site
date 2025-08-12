@@ -539,7 +539,7 @@ const WayOfDoingSection: React.FC = () => {
               Aprendizado por Projeto
             </h4>
             <p className="text-gray-500 italic">Onde eu quero chegar?</p>
-            </ br>
+            <br />
             <h4 className="text-primary font-lora text-2xl mb-1">
               Pesquisa etnográfica
             </h4>
