@@ -543,7 +543,7 @@ const WayOfDoingSection: React.FC = () => {
             <h4 className="text-primary font-lora text-2xl mb-1">
               Pesquisa etnográfica
             </h4>
-            <p className="text-gray-500 italic">Que atitude de escuta quero cultivar para compreender a cultura vida da escola?</p>
+            <p className="text-gray-500 italic">Que atitude de escuta quero cultivar para compreender a cultura viva da escola?</p>
           </div>
           <div className="bg-white p-8 rounded-2xl shadow-sm">
             <h4 className="text-primary font-lora text-2xl mb-4">
