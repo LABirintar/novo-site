@@ -423,13 +423,13 @@ const TopBar: React.FC = () => {
 
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://app.labirintar.com.br/login"
+              href="https://labirintar.com.br/"
               className="bg-white text-secondary border border-secondary px-4 py-2 rounded font-bold hover:bg-secondary hover:text-white transition"
             >
               Entrar
             </a>
             <a
-              href="https://app.labirintar.com.br/login?m=signup"
+              href="https://labirintar.com.br/"
               className="bg-secondary text-white px-4 py-2 rounded font-bold hover:bg-orange-500 transition"
             >
               Cadastrar
@@ -464,13 +464,13 @@ const TopBar: React.FC = () => {
           </div>
 
           <a
-            href="https://app.labirintar.com.br/login"
+            href="https://labirintar.com.br/login"
             className="w-full text-center border border-secondary text-secondary font-bold py-2 rounded"
           >
             Entrar
           </a>
           <a
-            href="https://app.labirintar.com.br/login?m=signup"
+            href="https://labirintar.com.br/login?m=signup"
             className="w-full text-center bg-secondary text-white font-bold py-2 rounded"
           >
             Cadastrar
@@ -493,7 +493,7 @@ const Hero: React.FC = () => {
         <header
             className="relative h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden"
             style={{
-                backgroundImage: `url(./imagensFundo/img_fundo.jpg)`,
+                backgroundImage: `url(./imagensFundo/img_preto_branco.jpg)`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center 30%',
             }}
@@ -756,61 +756,46 @@ const WayOfDoingSection: React.FC = () => {
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
     
     return (
-      <section
-        ref={sectionRef}
-        className={`w-full py-24 px-4 sm:px-8 bg-cover bg-center relative ${getFadeInClass(
-          isVisible
-        )}`}
-        style={{
-          backgroundImage: `url('/imagensFundo/img_crianca_preto_branco.jpg')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        {/* overlay branco semi-transparente */}
-        <div className="absolute inset-0 bg-white/70"></div>
+        <section
+            ref={sectionRef}
+            className={`w-full py-24 px-4 sm:px-8 bg-cover bg-center relative ${getFadeInClass(isVisible)}`}
+            style={{
+                backgroundImage: `url('/imagensFundo/img_crianca_preto_branco.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }}
+        >
+            {/* overlay branco semi-transparente */}
+            <div className="absolute inset-0 bg-white/70"></div>
 
-        {/* conteúdo centralizado */}
-        <div className="relative container mx-auto max-w-5xl">
-          <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">
-            Nosso jeito de fazer
-          </h2>
+            {/* conteúdo centralizado */}
+            <div className="relative container mx-auto max-w-5xl">
+                <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-12">
+                    Nosso jeito de fazer
+                </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h4 className="text-primary font-raleway text-2xl mb-1">
-                Aula como experiência
-              </h4>
-              <p className="text-gray-500 italic mb-6">
-                Por que eu quero viver isso?
-              </p>
-              <h4 className="text-primary font-raleway text-2xl mb-1">
-                Aprendizado por Projeto
-              </h4>
-              <p className="text-gray-500 italic">Onde eu quero chegar?</p>
-              <br />
-              <h4 className="text-primary font-raleway text-2xl mb-1">
-                Pesquisa etnográfica
-              </h4>
-              <p className="text-gray-500 italic">Que atitude de escuta quero cultivar para compreender a cultura viva da escola?</p>
+                <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-white p-8 rounded-2xl shadow-sm">
+                        <h4 className="text-primary font-raleway text-2xl mb-1">Aula como experiência</h4>
+                        <p className="text-gray-500 italic mb-6">Por que eu quero viver isso?</p>
+                        <h4 className="text-primary font-raleway text-2xl mb-1">Aprendizado por Projeto</h4>
+                        <p className="text-gray-500 italic">Onde eu quero chegar?</p>
+                    </div>
+                    <div className="bg-white p-8 rounded-2xl shadow-sm">
+                        <h4 className="text-primary font-raleway text-2xl mb-4">Rotina estruturante</h4>
+                        <ul className="space-y-3">
+                            {routineItems.map(item => (
+                                <li key={item} className="flex items-center gap-3">
+                                    <CheckCircle className="w-5 h-5 text-secondary" />
+                                    <span className="font-medium">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h4 className="text-primary font-raleway text-2xl mb-4">
-                Rotina estruturante
-              </h4>
-              <ul className="space-y-3">
-                {routineItems.map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-secondary" />
-                    <span className="font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     );
 };
 
