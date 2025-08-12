@@ -423,13 +423,13 @@ const TopBar: React.FC = () => {
 
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://labirintar.com.br/"
+              href="https://app.labirintar.com.br/"
               className="bg-white text-secondary border border-secondary px-4 py-2 rounded font-bold hover:bg-secondary hover:text-white transition"
             >
               Entrar
             </a>
             <a
-              href="https://labirintar.com.br/"
+              href="https://app.labirintar.com.br/"
               className="bg-secondary text-white px-4 py-2 rounded font-bold hover:bg-orange-500 transition"
             >
               Cadastrar
