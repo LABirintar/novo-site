@@ -418,18 +418,22 @@ const TopBar: React.FC = () => {
       <div className="w-full bg-white shadow-sm fixed top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img src="logoslabirintar/Labirintar_Bubble.webp" alt="Logo LABirintar" className="h-10" />
+            <img
+              src="logoslabirintar/Labirintar_Bubble.webp"
+              alt="Logo LABirintar"
+              className="h-10"
+            />
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://app.labirintar.com.br/"
+              href="https://app.labirintar.com.br/admin"
               className="bg-white text-secondary border border-secondary px-4 py-2 rounded font-bold hover:bg-secondary hover:text-white transition"
             >
               Entrar
             </a>
             <a
-              href="https://app.labirintar.com.br/"
+              href="https://app.labirintar.com.br/?m=signup"
               className="bg-secondary text-white px-4 py-2 rounded font-bold hover:bg-orange-500 transition"
             >
               Cadastrar
@@ -437,13 +441,25 @@ const TopBar: React.FC = () => {
           </div>
 
           <div className="md:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu mobile">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Abrir menu mobile"
+            >
               {menuOpen ? (
                 <X className="w-6 h-6 text-text-main" />
               ) : (
-                <svg className="w-6 h-6 text-text-main" fill="none" stroke="currentColor" strokeWidth={2}
-                  viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                  className="w-6 h-6 text-text-main"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               )}
             </button>
@@ -455,22 +471,29 @@ const TopBar: React.FC = () => {
         <div className="fixed inset-0 bg-white z-40 p-6 flex flex-col items-start gap-6 shadow-xl transition-all">
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center space-x-2">
-              <img src="logoslabirintar/Labirintar_RGB.png" alt="Logo" className="h-6" />
+              <img
+                src="logoslabirintar/Labirintar_RGB.png"
+                alt="Logo"
+                className="h-6"
+              />
               <span className="font-bold text-secondary">LABIRINTAR</span>
             </div>
-            <button onClick={() => setMenuOpen(false)} aria-label="Fechar menu mobile">
+            <button
+              onClick={() => setMenuOpen(false)}
+              aria-label="Fechar menu mobile"
+            >
               <X className="w-6 h-6 text-gray-500" />
             </button>
           </div>
 
           <a
-            href="https://app.labirintar.com.br/"
+            href="https://app.labirintar.com.br/admin"
             className="w-full text-center border border-secondary text-secondary font-bold py-2 rounded"
           >
             Entrar
           </a>
           <a
-            href="https://app.labirintar.com.br/"
+            href="https://app.labirintar.com.br/?m=signup"
             className="w-full text-center bg-secondary text-white font-bold py-2 rounded"
           >
             Cadastrar
