@@ -493,7 +493,7 @@ const Hero: React.FC = () => {
         <header
             className="relative h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden"
             style={{
-                backgroundImage: `url(./imagensFundo/img_preto_branco.jpg)`,
+                backgroundImage: `url(./imagensFundo/img_fundo.jpg)`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center 30%',
             }}
