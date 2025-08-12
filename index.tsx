@@ -464,13 +464,13 @@ const TopBar: React.FC = () => {
           </div>
 
           <a
-            href="https://app.labirintar.com.br/"
+            href="https://labirintar.com.br/login"
             className="w-full text-center border border-secondary text-secondary font-bold py-2 rounded"
           >
             Entrar
           </a>
           <a
-            href="https://app.labirintar.com.br/"
+            href="https://labirintar.com.br/login?m=signup"
             className="w-full text-center bg-secondary text-white font-bold py-2 rounded"
           >
             Cadastrar
