@@ -1069,6 +1069,12 @@ const portfolioData: PortfolioItem[] = [
     ],
     tooltip: null,
   },
+  {
+    title: "Drone Educativo",
+    folder: "droneeducativo",
+    images: ["IMG_1901.jpg", "IMG_1902.jpg",  "IMG_1903.jpg","IMG_1904.jpg","IMG_1905.jpg","IMG_1906.jpg","IMG_1907.jpg","IMG_1908.jpg"],
+    tooltip: null,
+  },
 ];
 
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({ selectedItems, onToggleItem, onToggleSelectAll, onDeselectAll, portfolioItemTitles }) => {
