@@ -783,6 +783,21 @@ const portfolioData: PortfolioItem[] = [
     ],
     tooltip: null,
   },
+  {
+    title: "Xadrez",
+    folder: "xadrez",
+    images: [
+      "IMG_2001.jpg",
+      "IMG_2002.jpg",
+      "IMG_2003.jpg",
+      "IMG_2004.jpg",
+      "IMG_2005.jpg",
+      "IMG_2006.jpg",
+      "IMG_2007.jpg",
+      "IMG_2008.jpg",
+    ],
+    tooltip: null,
+  },
 ];
 
 const PortfolioSection: React.FC = () => {

@@ -1072,7 +1072,31 @@ const portfolioData: PortfolioItem[] = [
   {
     title: "Drone Educativo",
     folder: "droneeducativo",
-    images: ["IMG_1901.jpg", "IMG_1902.jpg",  "IMG_1903.jpg","IMG_1904.jpg","IMG_1905.jpg","IMG_1906.jpg","IMG_1907.jpg","IMG_1908.jpg"],
+    images: [
+      "IMG_1901.jpg",
+      "IMG_1902.jpg",
+      "IMG_1903.jpg",
+      "IMG_1904.jpg",
+      "IMG_1905.jpg",
+      "IMG_1906.jpg",
+      "IMG_1907.jpg",
+      "IMG_1908.jpg",
+    ],
+    tooltip: null,
+  },
+  {
+    title: "Xadrez",
+    folder: "xadrez",
+    images: [
+      "IMG_2001.jpg",
+      "IMG_2002.jpg",
+      "IMG_2003.jpg",
+      "IMG_2004.jpg",
+      "IMG_2005.jpg",
+      "IMG_2006.jpg",
+      "IMG_2007.jpg",
+      "IMG_2008.jpg",
+    ],
     tooltip: null,
   },
 ];
