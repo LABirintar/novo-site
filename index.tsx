@@ -537,7 +537,7 @@ const Hero: React.FC = () => {
         color: '#000000ff'
     }}
 >
-    Educar é ocupar o tempo com sentido.
+    Educar é dar sentido ao tempo.
 </h1>
 
 <p
