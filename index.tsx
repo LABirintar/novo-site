@@ -827,9 +827,11 @@ const WayOfDoingSection: React.FC = () => {
               </h4>
               <ul className="space-y-3">
                 {routineItems.map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-secondary" />
-                    <span className="font-medium">{item}</span>
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="w-6 h-6 flex-shrink-0 flex items-center justify-center text-secondary">
+                      <CheckCircle size={18} strokeWidth={2} aria-hidden />
+                    </span>
+                    <span className="font-medium leading-tight">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -1317,12 +1319,12 @@ const PartnershipSection: React.FC = () => {
           Modelo de Parceria
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-12">
           <PartnershipCard
             title="Split de receita e assinatura mensal"
             description=""
             border="border-primary"
-            activityDuration="2 horas de experiência extracurricular/ dia."
+            activityDuration="Mínimo 2 horas de experiência extracurricular/ dia."
             details={[
               '<strong ><span class="font-bold">35%</span> Escola</strong>',
               "<span>25%</span> LABirintar",
