@@ -771,8 +771,8 @@ const SolutionSection: React.FC = () => {
 const WayOfDoingSection: React.FC = () => {
     const [sectionRef, isVisible] = useFadeIn<HTMLElement>();
     const routineItems = [
-        'Intencionalidade', 'Autonomia', 'Presença', 'Problematização/ Aproximação',
-        'Ação/ Cooperação', 'Contemplação', 'Documentação'
+        'Corpo como território de conhecimento (presença e intencionalidade)', 'Currículo Vivo (problematização)', 'Conhecimento como acontecimento (ação e cooperação)', 'Desobediência pedagógica (autonomia)',
+        'Cartografia do cotidiano (contemplação e documentação)', 'Ética da presença (cuidado)'
     ];
 
     const getFadeInClass = (isVisible: boolean) => 
@@ -823,7 +823,7 @@ const WayOfDoingSection: React.FC = () => {
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm">
               <h4 className="text-primary font-raleway text-2xl mb-4">
-                Rotina estruturante
+                Pedagogia Viva: <br /> Rotina estruturante
               </h4>
               <ul className="space-y-3">
                 {routineItems.map((item) => (
@@ -987,30 +987,30 @@ const portfolioData: PortfolioItem[] = [
     ],
     tooltip: null,
   },
-  {
-    title: "Brincar Livre",
-    folder: "brincarlivre",
-    images: [
-      "IMG_3204.png",
-      "IMG_1801.jpeg",
-      "IMG_1804.jpeg",
-      "IMG_1811.jpeg",
-      "IMG_1830.jpeg",
-      "IMG_1831.jpeg",
-      "IMG_1832.jpeg",
-      "IMG_1979.jpeg",
-      "IMG_1980.jpeg",
-      "IMG_1981.jpeg",
-      "IMG_1982.jpeg",
-      "IMG_1983.jpeg",
-      "IMG_1984.jpeg",
-      "IMG_1985.jpeg",
-      "IMG_1986.jpeg",
-      "IMG_1987.jpeg",
-      "IMG_1988.jpeg",
-    ],
-    tooltip: null,
-  },
+  // {
+  //   title: "Brincar Livre",
+  //   folder: "brincarlivre",
+  //   images: [
+  //     "IMG_3204.png",
+  //     "IMG_1801.jpeg",
+  //     "IMG_1804.jpeg",
+  //     "IMG_1811.jpeg",
+  //     "IMG_1830.jpeg",
+  //     "IMG_1831.jpeg",
+  //     "IMG_1832.jpeg",
+  //     "IMG_1979.jpeg",
+  //     "IMG_1980.jpeg",
+  //     "IMG_1981.jpeg",
+  //     "IMG_1982.jpeg",
+  //     "IMG_1983.jpeg",
+  //     "IMG_1984.jpeg",
+  //     "IMG_1985.jpeg",
+  //     "IMG_1986.jpeg",
+  //     "IMG_1987.jpeg",
+  //     "IMG_1988.jpeg",
+  //   ],
+  //   tooltip: null,
+  // },
   {
     title: "Mindfulness",
     folder: "mindfulness",
@@ -1307,37 +1307,34 @@ const PartnershipSection: React.FC = () => {
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
     
     return (
-        <section ref={sectionRef} className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(isVisible)}`}>
-            <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">Modelos de Parceria Flexíveis</h2>
-            <p className="text-center text-2xl text-gray-600 max-w-2xl mx-auto mb-16">Temos o modelo ideal para o momento e a estratégia da sua escola.</p>
+      <section
+        ref={sectionRef}
+        className={`container mx-auto max-w-5xl py-24 px-4 sm:px-8 ${getFadeInClass(
+          isVisible
+        )}`}
+      >
+        <h2 className="font-raleway text-center text-[clamp(2.2rem,5vw,3.2rem)] leading-tight mb-4">
+          Modelo de Parceria
+        </h2>
 
-            <div className="grid lg:grid-cols-2 gap-12">
-                <PartnershipCard 
-                    title="Modelo 1: Split de Receita"
-                    description="Perfeito para escolas que desejam <strong>inovar sem investimento inicial</strong>."
-                    border="border-primary"
-                    activityDuration="2 horas de atividade/dia"
-                    details={[
-                        '<span>30%</span> LABirintar',
-                        '<span>35%</span> Educador + <span>15%</span> Empresa',
-                        '<strong class="font-bold"><span>20%</span> Escola</strong>',
-                    ]}
-                    note="A escola oferece o espaço e a LABirintar cuida de toda a operação."
-                />
-                <PartnershipCard 
-                    title="Modelo 2: Assinatura Mensal"
-                    description="Para escolas que buscam ser <strong>protagonistas e maximizar o retorno</strong>."
-                    border="border-secondary"
-                    activityDuration="2 horas de atividade/dia"
-                    details={[
-                        '<strong class="font-bold"><span>30%</span> Escola</strong>',
-                        '<span>35%</span> Educador + <span>15%</span> Empresa',
-                        '<span>20%</span> LABirintar',
-                    ]}
-                    note="A escola se torna o motor comercial e fica com grande parte da receita. Terá um custo fixo de assinatura mensal que será de R$2.000."
-                />
-            </div>
-        </section>
+        <div className="grid lg:grid-cols-2 gap-12">
+          <PartnershipCard
+            title="Split de receita e assinatura mensal"
+            description=""
+            border="border-primary"
+            activityDuration="2 horas de experiência extracurricular/ dia."
+            details={[
+              '<strong ><span class="font-bold">35%</span> Escola</strong>',
+              "<span>25%</span> LABirintar",
+              "<span>30%</span> Educador Empreendedor",
+              "<span>10%</span> Provedor Educacional",
+            ]}
+            note="A escola oferece o espaço, a LABirintar faz o resto.
+Por uma assinatura mensal de R$ 2.000, cuidamos de toda a operação: educadores empreendedores, gestão, curadoria e tecnologia.
+A escola participa da receita e transforma o extracurricular em fonte de valor, não de custo."
+          />
+        </div>
+      </section>
     );
 };
 
